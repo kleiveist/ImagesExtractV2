@@ -79,7 +79,6 @@ ImagesExtract2/
           |-- 03-Enhancement/     # Vorbereitung für Enhancement
           |-- 03-TransBack/       # Vorbereitung für Transparenz
           |-- ...                 # Weitere Verarbeitungsordner
-
 ```
 
 ---
@@ -105,6 +104,7 @@ log.txt / error_log.txt → Alle Protokollausgaben gesammelt
 ---
 
 ```plaintext
+
 START
  |
  v
@@ -167,8 +167,6 @@ START
  |
  v
 END
-
-
 ```
 ---
 
