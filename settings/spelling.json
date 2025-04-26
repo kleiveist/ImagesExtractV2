@@ -1,0 +1,100 @@
+{
+  "spelling": [
+    {
+      "name": "Folders",
+      "enabled": true,
+      "folders": []
+    },
+    {
+      "name": "Convert.py",
+      "enabled": true,
+      "folders": []
+    },
+    {
+      "name": "Enhancement",
+      "enabled": false,
+      "folders": [
+        "output_foldes_collation2",
+        "output_foldes_collation4",
+        "output_foldes_collation5",
+        "output_foldes_collation7"
+      ]
+    },
+    {
+      "name": "TransBack",
+      "enabled": false,
+      "folders": [
+        "output_foldes_collation1",
+        "output_foldes_collation6"
+      ]
+    },
+    {
+      "name": "Extract",
+      "enabled": false,
+      "folders": [
+        "output_foldes_collation1",
+        "output_foldes_collation2",
+        "output_foldes_collation5",
+        "output_foldes_collation6"
+      ]
+    },
+    {
+      "name": "ExtractGray",
+      "enabled": false,
+      "folders": [
+        "output_foldes_collation3",
+        "output_foldes_collation4",
+        "output_foldes_collation7"
+      ]
+    },
+    {
+      "name": "SwapColors",
+      "enabled": false,
+      "folders": [
+        "output_foldes_collation8"
+      ]
+    },
+    {
+      "name": "CleanUp",
+      "enabled": false,
+      "folders": [
+        "output_foldes_collation1",
+        "output_foldes_collation2",
+        "output_foldes_collation3",
+        "output_foldes_collation4",
+        "output_foldes_collation5",
+        "output_foldes_collation6",
+        "output_foldes_collation7",
+        "output_foldes_collation8",
+        "output_foldes_collation9"
+      ]
+    },
+    {
+      "name": "Scal",
+      "enabled": false,
+      "folders": [
+        "output_foldes_collation1",
+        "output_foldes_collation2",
+        "output_foldes_collation3",
+        "output_foldes_collation4",
+        "output_foldes_collation5",
+        "output_foldes_collation6",
+        "output_foldes_collation7",
+        "output_foldes_collation8",
+        "output_foldes_collation9"
+      ]
+    },
+    {
+      "name": "Collation",
+      "enabled": false,
+      "folders": []
+    },
+    {
+      "name": "invert",
+      "enabled": false,
+      "folders": [
+        "output_foldes_collation9"
+      ]
+    }
+  ]
+}

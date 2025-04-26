@@ -1,0 +1,19 @@
+2025-04-25 19:22:51,807 - [WARN] Modul Convert.py nicht gefunden unter
+x:\Blobbite\P25Images_extract\ImagesExtract2\mdouls\Convert.py
+2025-04-25 19:25:01,863 - [WARN] Modul Convert.py nicht gefunden. Gesucht in: mdouls, Hauptverzeichnis und settings
+2025-04-25 19:27:20,079 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
+'x:\\Blobbite\\P25Images_extract\\ImagesExtract2\\spelling\\Convert.py',
+'x:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250425_08']' returned non-zero
+exit status 1.
+2025-04-25 19:29:20,867 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
+'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\spelling\\Convert.py',
+'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250425_09']' returned non-zero
+exit status 1.
+2025-04-25 19:30:06,116 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
+'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\spelling\\Convert.py',
+'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250425_10']' returned non-zero
+exit status 1.
+2025-04-25 19:35:04,274 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
+'x:\\Blobbite\\P25Images_extract\\ImagesExtract2\\spelling\\Convert.py',
+'x:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250425_11']' returned non-zero
+exit status 1.

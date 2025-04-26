@@ -1,0 +1,45 @@
+📂 ImagesExtract2
+├── 📝 .gitignore
+├── 📝 InContent.txt
+├── 📝 README.md
+├── 📝 error_log.txt
+├── 📄 ic_01.png
+├── 📂 image/
+│   └── 📂 250425/
+│       ├── 📂 02-png/
+│       ├── 📂 03-Enhancement/
+│       ├── 📂 03-Enhanclean/
+│       ├── 📂 03-Enhancwhite/
+│       ├── 📂 03-Enhwhitclean/
+│       ├── 📂 03-Invert/
+│       ├── 📂 03-Swapcolors/
+│       ├── 📂 03-TransBack/
+│       ├── 📂 03-Transclean/
+│       └── 📂 03-Whitepaper/
+├── 📝 log.txt
+├── 📂 mdouls/
+│   ├── 🐍 folders.py
+│   ├── 🐍 logger.py
+│   └── 🐍 utils.py
+├── 📝 requirements.txt
+├── 📂 script/
+│   └── 🐍 script_manager.py
+├── 📂 settings/
+│   ├── 📂 _archive/
+│   │   └── 📄 settings.ini
+│   ├── 📄 foldes.json
+│   ├── 📄 settings.json
+│   ├── 📄 spelling.json
+│   └── 📄 start.json
+├── 📂 spelling/
+│   ├── 🐍 CleanUp.py
+│   ├── 🐍 Collation.py
+│   ├── 🐍 ConvertWebp.py
+│   ├── 🐍 Enhancement.py
+│   ├── 🐍 Extract.py
+│   ├── 🐍 ExtractGray.py
+│   ├── 🐍 Scal.py
+│   ├── 🐍 SwapColors.py
+│   ├── 🐍 TransBack.py
+│   └── 🐍 invert.py
+└── 🐍 startskript.py

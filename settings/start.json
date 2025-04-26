@@ -1,0 +1,29 @@
+{
+  "folder": {
+    "foldername": "image",
+    "folderpath": null,
+    "entrancepath": null
+  },
+  "logger": {
+    "logger_folder": false,
+    "logging_enabled": true,
+    "console_output": true
+  },
+  "settings": {
+    "output_format": "png",
+    "enter_confirmation": true
+  },
+  "modules": [
+    {"name": "Convert.py", "enabled": true},
+    {"name": "Folders.py", "enabled": true},
+    {"name": "Enhancement.py", "enabled": false},
+    {"name": "TransBack.py", "enabled": false},
+    {"name": "Extract.py", "enabled": false},
+    {"name": "ExtractGray.py", "enabled": false},
+    {"name": "SwapColors.py", "enabled": false},
+    {"name": "CleanUp.py", "enabled": false},
+    {"name": "Scal.py", "enabled": false},
+    {"name": "Collation.py", "enabled": false},
+    {"name": "invert.py", "enabled": false}
+  ]
+}
