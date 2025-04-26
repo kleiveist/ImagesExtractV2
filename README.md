@@ -1,9 +1,3 @@
-Sehr gut.
-Ich erstelle dir jetzt ein umfangreiches, professionelles GitHub-README.md.
-Es wird alle Inhalte und Abläufe enthalten, die wir bisher besprochen haben, inkl. der Unicode-Grafik, Projektbeschreibung, Modulübersicht, Ablaufphasen und technischen Anmerkungen.
-
-Hier ist das vollständige README, perfekt zum direkten Einfügen:
-
 
 ---
 
@@ -40,6 +34,7 @@ Technisch, klar, perfekt für Readme oder Doku.
 Hier die ASCII-Version:
 
 
+```plaintext
 ---
 
 ImagesExtract2/
@@ -108,6 +103,7 @@ log.txt / error_log.txt → Alle Protokollausgaben gesammelt
 
 ---
 
+```plaintext
 START
  |
  v
