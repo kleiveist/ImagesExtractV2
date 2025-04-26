@@ -1,4 +1,7 @@
 Gesamt-Ablauflogik ImagesExtract2 (Stand: aktuelle Phase)
+
+---
+
 1. Startskript
 Datei: startskript.py
 
@@ -18,6 +21,8 @@ Converter
 
 Spelling
 
+---
+
 2. Logger
 Datei: moduls/logger.py
 
@@ -26,6 +31,8 @@ Aufgabe:
 Initialisiert Logging (Konsole und/oder log.txt / error_log.txt).
 
 Kontrolliert Ausgaben und Fehlerprotokollierung global.
+
+---
 
 3. Utils
 Datei: moduls/utils.py
@@ -49,6 +56,8 @@ Erstellt die Basisordnerstruktur aus settings/foldes.json.
 
 Verwaltung und Prüfung auf Existenz / Neuanlage.
 
+---
+
 5. PrepareInput
 Datei: spelling/PrepareInput.py
 
@@ -64,6 +73,8 @@ Erstellt dynamische Ordner:
 
 Verschiebt/kopiert Bilder in die entsprechenden 01-Ordner.
 
+---
+
 6. Converter
 Datei: spelling/Converter.py
 
@@ -76,6 +87,8 @@ Speichert konvertierte Bilder in:
 neuen Ordner 02_[outputformat] (z.B. 02_png/)
 
 Kopiert die Bilder zusätzlich in alle Ordner, die folders.py angelegt hat (z.B. 03-Enhancement/, 03-TransBack/, usw.).
+
+---
 
 7. Spelling-Steuerung
 Datei: spelling/Spelling.py
