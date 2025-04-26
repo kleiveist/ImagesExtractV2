@@ -1,60 +1,95 @@
 Gesamt-Ablauflogik ImagesExtract2 (Stand: aktuelle Phase)
-
 1. Startskript
 Datei: startskript.py
+
 Aufgabe: Initialisiert das gesamte Programm.
+
 Startet die Instanzen:
+
 Logger
+
 Utils
+
 Folders
+
 PrepareInput
+
 Converter
+
 Spelling
 
 2. Logger
 Datei: moduls/logger.py
+
 Aufgabe:
+
 Initialisiert Logging (Konsole und/oder log.txt / error_log.txt).
+
 Kontrolliert Ausgaben und Fehlerprotokollierung global.
 
 3. Utils
 Datei: moduls/utils.py
+
 Aufgabe:
+
 Legt das Arbeitsverzeichnis fest:
+
 Entweder aus start.json
+
 Oder Standardpfad /images/ im Projekt.
+
 Bietet Zugriffsfunktionen für alle anderen Module auf Pfadinformationen.
 
 4. Folders
 Datei: moduls/folders.py
+
 Aufgabe:
+
 Erstellt die Basisordnerstruktur aus settings/foldes.json.
+
 Verwaltung und Prüfung auf Existenz / Neuanlage.
 
 5. PrepareInput
 Datei: spelling/PrepareInput.py
+
 Aufgabe:
+
 Scannt Eingangsordner.
+
 Ermittelt Bildformate (.png, .jpg, .webp, usw.).
+
 Erstellt dynamische Ordner:
+
 01_png/, 01_webp/, etc.
+
 Verschiebt/kopiert Bilder in die entsprechenden 01-Ordner.
 
 6. Converter
 Datei: spelling/Converter.py
+
 Aufgabe:
+
 Konvertiert Bilder aus 01_[format]/ in ein definiertes Zielformat (.png).
+
 Speichert konvertierte Bilder in:
+
 neuen Ordner 02_[outputformat] (z.B. 02_png/)
+
 Kopiert die Bilder zusätzlich in alle Ordner, die folders.py angelegt hat (z.B. 03-Enhancement/, 03-TransBack/, usw.).
 
 7. Spelling-Steuerung
 Datei: spelling/Spelling.py
+
 Aufgabe:
+
 Liest Konfiguration aus settings/spelling.json.
+
 Steuert, welche Nachbearbeitungs-Skripte auf welchen Ordnern ausgeführt werden.
+
 Führt nur enabled: true Skripte aus.
+
 Beispiele: Enhancement, Extract, SwapColors, CleanUp usw.
+
 
 
 ---
