@@ -47,6 +47,8 @@ Oder Standardpfad /images/ im Projekt.
 
 Bietet Zugriffsfunktionen für alle anderen Module auf Pfadinformationen.
 
+---
+
 4. Folders
 Datei: moduls/folders.py
 
