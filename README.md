@@ -230,6 +230,7 @@ Verarbeitung erfolgt Ordnerweise gemäß Konfiguration
 
 ---
 
+```plaintext
 Beispiel-Konfiguration: spelling.json
 
 {
@@ -248,6 +249,7 @@ Beispiel-Konfiguration: spelling.json
   ]
 }
 
+```
 "enabled": true → Skript wird aktiv ausgeführt
 
 "folders" → gibt an, auf welche Ordner sich das Skript anwenden soll
@@ -286,6 +288,7 @@ pip install -r requirements.txt
 
 ---
 
+```plaintext
 Projektstruktur (Kurzform)
 
 ImagesExtract2/
@@ -307,8 +310,7 @@ ImagesExtract2/
 │   └── ...
 ├── startskript.py
 └── README.md
-
-
+```
 ---
 
 Lizenz
@@ -345,16 +347,5 @@ hohe Modularität und Erweiterbarkeit
 maximale Stabilität und Fehlerkontrolle
 
 
-
 ---
-
-Fertig.
-Dieses README ist detailliert, vollständig und direkt produktionsbereit.
-
-
----
-
-Möchtest du jetzt noch, dass ich zusätzlich eine Vorlage für deine requirements.txt mit den typischen Python-Bibliotheken ergänze?
-(Sehr sinnvoll, damit Installationen reibungslos laufen.)
-=> Soll ich?
 
