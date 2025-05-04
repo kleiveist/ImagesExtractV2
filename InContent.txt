@@ -2,28 +2,18 @@
 ├── 📝 .gitignore
 ├── 📝 InContent.txt
 ├── 📝 README.md
+├── 📂 entrance/
 ├── 📝 error_log.txt
 ├── 📄 ic_01.png
 ├── 📂 image/
-│   └── 📂 250425/
-│       ├── 📂 02-png/
-│       ├── 📂 03-Enhancement/
-│       ├── 📂 03-Enhanclean/
-│       ├── 📂 03-Enhancwhite/
-│       ├── 📂 03-Enhwhitclean/
-│       ├── 📂 03-Invert/
-│       ├── 📂 03-Swapcolors/
-│       ├── 📂 03-TransBack/
-│       ├── 📂 03-Transclean/
-│       └── 📂 03-Whitepaper/
-├── 📝 log.txt
-├── 📂 mdouls/
+├── 📂 init/
 │   ├── 🐍 folders.py
 │   ├── 🐍 logger.py
 │   └── 🐍 utils.py
-├── 📝 requirements.txt
-├── 📂 script/
-│   └── 🐍 script_manager.py
+├── 📝 log.txt
+├── 📂 moduls/
+│   ├── 🐍 convert.py
+│   └── 🐍 prepareInput.py
 ├── 📂 settings/
 │   ├── 📂 _archive/
 │   │   └── 📄 settings.ini
@@ -34,7 +24,6 @@
 ├── 📂 spelling/
 │   ├── 🐍 CleanUp.py
 │   ├── 🐍 Collation.py
-│   ├── 🐍 ConvertWebp.py
 │   ├── 🐍 Enhancement.py
 │   ├── 🐍 Extract.py
 │   ├── 🐍 ExtractGray.py
@@ -47,82 +36,209 @@
 === Datei-Inhalte ===
 
 📝 --- .gitignore ---
-/image_extractor
-0skripts/__pycache__
+/image
+spelling/__pycache__
+mo duls/__pycache__
 📝 --- InContent.txt ---
 
 📝 --- README.md ---
 
 📝 --- error_log.txt ---
-2025-04-25 15:55:02,065 - [WARN] Modul ConvertWebp.py nicht gefunden unter
-X:\Blobbite\P25Images_extract\ImagesExtract2\mdouls\ConvertWebp.py
-2025-04-25 15:55:02,227 - [WARN] Kein gültiger Datumsordner (JJMMTT oder JJMMTT_XX) gefunden.
+2025-04-25 19:22:51,807 - [WARN] Modul Convert.py nicht gefunden unter
+x:\Blobbite\P25Images_extract\ImagesExtract2\mdouls\Convert.py
+2025-04-25 19:25:01,863 - [WARN] Modul Convert.py nicht gefunden. Gesucht in: mdouls, Hauptverzeichnis und settings
+2025-04-25 19:27:20,079 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
+'x:\\Blobbite\\P25Images_extract\\ImagesExtract2\\spelling\\Convert.py',
+'x:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250425_08']' returned non-zero
+exit status 1.
+2025-04-25 19:29:20,867 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
+'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\spelling\\Convert.py',
+'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250425_09']' returned non-zero
+exit status 1.
+2025-04-25 19:30:06,116 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
+'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\spelling\\Convert.py',
+'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250425_10']' returned non-zero
+exit status 1.
+2025-04-25 19:35:04,274 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
+'x:\\Blobbite\\P25Images_extract\\ImagesExtract2\\spelling\\Convert.py',
+'x:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250425_11']' returned non-zero
+exit status 1.
 
 📝 --- log.txt ---
-2025-04-25 15:44:56,321 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:44:56,321 - [INFO] Working directory:
-2025-04-25 15:44:56,321 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
-2025-04-25 15:44:56,321 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:44:56,321 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:44:56,321 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
-2025-04-25 15:44:56,321 - [INFO] Bildverzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2\image_ext
-2025-04-25 15:44:56,321 - [ERROR] Konfigurationsdatei nicht gefunden:
-X:\Blobbite\P25Images_extract\ImagesExtract2\settings\modules_config.json
-2025-04-25 15:45:26,430 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:45:26,430 - [INFO] Working directory:
-2025-04-25 15:45:26,430 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
-2025-04-25 15:45:26,430 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:45:26,430 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:45:26,430 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
-2025-04-25 15:45:26,430 - [INFO] Bildverzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2\image_ext
-2025-04-25 15:45:26,430 - [ERROR] Konfigurationsdatei nicht gefunden:
-X:\Blobbite\P25Images_extract\ImagesExtract2\settings\modules_config.json
-2025-04-25 15:46:04,867 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:46:04,867 - [INFO] Working directory:
-2025-04-25 15:46:04,867 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
-2025-04-25 15:46:04,867 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:46:04,867 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:46:04,867 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
-2025-04-25 15:46:04,867 - [INFO] Bildverzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2\image_ext
-2025-04-25 15:46:04,867 - [ERROR] Fehler beim Laden der Modulkonfiguration: Expecting value: line 1 column 1 (char 0)
-2025-04-25 15:55:02,065 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:55:02,065 - [INFO] Working directory:
-2025-04-25 15:55:02,065 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
-2025-04-25 15:55:02,065 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:55:02,065 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:55:02,065 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
-2025-04-25 15:55:02,065 - [WARN] Modul ConvertWebp.py nicht gefunden unter
-X:\Blobbite\P25Images_extract\ImagesExtract2\mdouls\ConvertWebp.py
-2025-04-25 15:55:02,065 - [INFO] Starte Modul: Folders.py
-2025-04-25 15:55:02,227 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:55:02,227 - [INFO] Working directory:
-2025-04-25 15:55:02,227 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
-2025-04-25 15:55:02,227 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:55:02,227 - [INFO] start.json geladen: ...\settings\start.json
-2025-04-25 15:55:02,227 - [INFO] Ausgabeformat: png
-2025-04-25 15:55:02,227 - [INFO] foldes.json geladen: ...\settings\foldes.json
-2025-04-25 15:55:02,227 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:55:02,227 - [INFO] Verarbeite Ordnerstruktur in: ...\.
-2025-04-25 15:55:02,227 - [INFO] Suche nach Datumsordnern in: ...\.
-2025-04-25 15:55:02,227 - [INFO] Gefundene Datumsordner: []
-2025-04-25 15:55:02,227 - [WARN] Kein gültiger Datumsordner (JJMMTT oder JJMMTT_XX) gefunden.
-2025-04-25 15:55:02,227 - [INFO] Datumsordner erstellt: ...\250425
-2025-04-25 15:55:02,227 - [INFO] Ausgabeordner erstellt: ...\250425\02-png
-2025-04-25 15:55:02,227 - [INFO] Collation-Ordner erstellt: ...\250425\03-TransBack
-2025-04-25 15:55:02,227 - [INFO] Collation-Ordner erstellt: ...\250425\03-Enhancement
-2025-04-25 15:55:02,227 - [INFO] Collation-Ordner erstellt: ...\250425\03-Whitepaper
-2025-04-25 15:55:02,233 - [INFO] Collation-Ordner erstellt: ...\250425\03-Enhancwhite
-2025-04-25 15:55:02,233 - [INFO] Collation-Ordner erstellt: ...\250425\03-Enhanclean
-2025-04-25 15:55:02,233 - [INFO] Collation-Ordner erstellt: ...\250425\03-Transclean
-2025-04-25 15:55:02,233 - [INFO] Collation-Ordner erstellt: ...\250425\03-Enhwhitclean
-2025-04-25 15:55:02,233 - [INFO] Collation-Ordner erstellt: ...\250425\03-Swapcolors
-2025-04-25 15:55:02,233 - [INFO] Collation-Ordner erstellt: ...\250425\03-Invert
-2025-04-25 15:55:02,233 - [INFO] ------------------------------------------------------------------
-2025-04-25 15:55:02,233 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
-2025-04-25 15:55:02,233 - [INFO] Modul Folders.py erfolgreich beendet
-2025-04-25 15:55:02,233 - [INFO] ------------------------------------------------------------------
-
-📝 --- requirements.txt ---
+2025-04-25 19:21:02,278 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:21:02,278 - [INFO] Working directory:
+2025-04-25 19:21:02,278 - [INFO] x:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:21:02,278 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:21:02,278 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:21:02,279 - [INFO] Starte Skript im Verzeichnis: x:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:21:02,279 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-04-25 19:21:02,282 - [INFO] Datumsordner erstellt: x:\Blobbite\P25Images_extract\ImagesExtract2\image\250425_05
+2025-04-25 19:21:02,283 - [WARN] Modul Convert.py nicht gefunden unter
+x:\Blobbite\P25Images_extract\ImagesExtract2\mdouls\Convert.py
+2025-04-25 19:21:02,283 - [INFO] Starte Modul: Folders.py
+2025-04-25 19:21:02,334 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:21:02,334 - [INFO] Working directory:
+2025-04-25 19:21:02,334 - [INFO] x:\Blobbite\P25Images_extract\ImagesExtract2\image\250425_05
+2025-04-25 19:21:02,335 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:21:02,335 - [INFO] start.json geladen: x:\Blobbite\P25Images...2\settings\start.json
+2025-04-25 19:21:02,335 - [INFO] Ausgabeformat: png
+2025-04-25 19:21:02,335 - [INFO] foldes.json geladen: x:\Blobbite\P25Images...\settings\foldes.json
+2025-04-25 19:21:02,336 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:21:02,336 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-04-25 19:21:02,336 - [INFO] Arbeite im Ordner: ...\.
+2025-04-25 19:21:02,337 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-04-25 19:21:02,338 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-04-25 19:21:02,338 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-04-25 19:21:02,340 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-04-25 19:21:02,340 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-04-25 19:21:02,341 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-04-25 19:21:02,342 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-04-25 19:21:02,343 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-04-25 19:21:02,343 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-04-25 19:21:02,344 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-04-25 19:21:02,344 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:21:02,345 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-04-25 19:21:02,351 - [INFO] Modul Folders.py erfolgreich beendet
+2025-04-25 19:21:02,351 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:22:51,804 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:22:51,804 - [INFO] Working directory:
+2025-04-25 19:22:51,804 - [INFO] x:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:22:51,804 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:22:51,805 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:22:51,805 - [INFO] Starte Skript im Verzeichnis: x:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:22:51,805 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-04-25 19:22:51,806 - [INFO] Datumsordner erstellt: x:\Blobbite\P25Images_extract\ImagesExtract2\image\250425_06
+2025-04-25 19:22:51,807 - [WARN] Modul Convert.py nicht gefunden unter
+x:\Blobbite\P25Images_extract\ImagesExtract2\mdouls\Convert.py
+2025-04-25 19:22:51,807 - [INFO] Starte Modul: Folders.py
+2025-04-25 19:22:51,862 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:22:51,862 - [INFO] Working directory:
+2025-04-25 19:22:51,862 - [INFO] x:\Blobbite\P25Images_extract\ImagesExtract2\image\250425_06
+2025-04-25 19:22:51,862 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:22:51,863 - [INFO] start.json geladen: x:\Blobbite\P25Images...2\settings\start.json
+2025-04-25 19:22:51,863 - [INFO] Ausgabeformat: png
+2025-04-25 19:22:51,863 - [INFO] foldes.json geladen: x:\Blobbite\P25Images...\settings\foldes.json
+2025-04-25 19:22:51,863 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:22:51,864 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-04-25 19:22:51,864 - [INFO] Arbeite im Ordner: ...\.
+2025-04-25 19:22:51,864 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-04-25 19:22:51,865 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-04-25 19:22:51,866 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-04-25 19:22:51,867 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-04-25 19:22:51,868 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-04-25 19:22:51,868 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-04-25 19:22:51,869 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-04-25 19:22:51,870 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-04-25 19:22:51,871 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-04-25 19:22:51,871 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-04-25 19:22:51,871 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:22:51,872 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-04-25 19:22:51,880 - [INFO] Modul Folders.py erfolgreich beendet
+2025-04-25 19:22:51,880 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:25:01,859 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:25:01,859 - [INFO] Working directory:
+2025-04-25 19:25:01,859 - [INFO] x:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:25:01,859 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:25:01,860 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:25:01,860 - [INFO] Starte Skript im Verzeichnis: x:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:25:01,860 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-04-25 19:25:01,863 - [INFO] Datumsordner erstellt: x:\Blobbite\P25Images_extract\ImagesExtract2\image\250425_07
+2025-04-25 19:25:01,863 - [WARN] Modul Convert.py nicht gefunden. Gesucht in: mdouls, Hauptverzeichnis und settings
+2025-04-25 19:25:01,864 - [INFO] Modul Folders.py gefunden unter:
+x:\Blobbite\P25Images_extract\ImagesExtract2\mdouls\Folders.py
+2025-04-25 19:25:01,864 - [INFO] Starte Modul: Folders.py
+2025-04-25 19:25:01,916 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:25:01,916 - [INFO] Working directory:
+2025-04-25 19:25:01,917 - [INFO] x:\Blobbite\P25Images_extract\ImagesExtract2\image\250425_07
+2025-04-25 19:25:01,917 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:25:01,917 - [INFO] start.json geladen: x:\Blobbite\P25Images...2\settings\start.json
+2025-04-25 19:25:01,917 - [INFO] Ausgabeformat: png
+2025-04-25 19:25:01,918 - [INFO] foldes.json geladen: x:\Blobbite\P25Images...\settings\foldes.json
+2025-04-25 19:25:01,918 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:25:01,918 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-04-25 19:25:01,918 - [INFO] Arbeite im Ordner: ...\.
+2025-04-25 19:25:01,919 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-04-25 19:25:01,919 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-04-25 19:25:01,921 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-04-25 19:25:01,921 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-04-25 19:25:01,922 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-04-25 19:25:01,922 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-04-25 19:25:01,923 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-04-25 19:25:01,924 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-04-25 19:25:01,925 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-04-25 19:25:01,925 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-04-25 19:25:01,925 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:25:01,926 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-04-25 19:25:01,933 - [INFO] Modul Folders.py erfolgreich beendet
+2025-04-25 19:25:01,934 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:27:20,021 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:27:20,021 - [INFO] Working directory:
+2025-04-25 19:27:20,021 - [INFO] x:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:27:20,022 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:27:20,022 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:27:20,022 - [INFO] Starte Skript im Verzeichnis: x:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:27:20,022 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-04-25 19:27:20,026 - [INFO] Datumsordner erstellt: x:\Blobbite\P25Images_extract\ImagesExtract2\image\250425_08
+2025-04-25 19:27:20,026 - [INFO] Modul Convert.py gefunden unter:
+x:\Blobbite\P25Images_extract\ImagesExtract2\spelling\Convert.py
+2025-04-25 19:27:20,026 - [INFO] Modul Folders.py gefunden unter:
+x:\Blobbite\P25Images_extract\ImagesExtract2\mdouls\Folders.py
+2025-04-25 19:27:20,026 - [INFO] Starte Modul: Convert.py
+2025-04-25 19:27:20,079 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
+'x:\\Blobbite\\P25Images_extract\\ImagesExtract2\\spelling\\Convert.py',
+'x:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250425_08']' returned non-zero
+exit status 1.
+2025-04-25 19:29:20,744 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:29:20,744 - [INFO] Working directory:
+2025-04-25 19:29:20,744 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:29:20,745 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:29:20,745 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:29:20,745 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:29:20,745 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-04-25 19:29:20,748 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\image\250425_09
+2025-04-25 19:29:20,748 - [INFO] Modul Convert.py gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\spelling\Convert.py
+2025-04-25 19:29:20,748 - [INFO] Modul Folders.py gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\mdouls\Folders.py
+2025-04-25 19:29:20,748 - [INFO] Starte Modul: Convert.py
+2025-04-25 19:29:20,867 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
+'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\spelling\\Convert.py',
+'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250425_09']' returned non-zero
+exit status 1.
+2025-04-25 19:30:06,027 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:30:06,027 - [INFO] Working directory:
+2025-04-25 19:30:06,027 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:30:06,027 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:30:06,027 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:30:06,027 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:30:06,028 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-04-25 19:30:06,031 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\image\250425_10
+2025-04-25 19:30:06,031 - [INFO] Modul Convert.py gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\spelling\Convert.py
+2025-04-25 19:30:06,031 - [INFO] Modul Folders.py gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\mdouls\Folders.py
+2025-04-25 19:30:06,031 - [INFO] Starte Modul: Convert.py
+2025-04-25 19:30:06,116 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
+'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\spelling\\Convert.py',
+'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250425_10']' returned non-zero
+exit status 1.
+2025-04-25 19:35:04,209 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:35:04,209 - [INFO] Working directory:
+2025-04-25 19:35:04,209 - [INFO] x:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:35:04,209 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:35:04,210 - [INFO] ------------------------------------------------------------------
+2025-04-25 19:35:04,210 - [INFO] Starte Skript im Verzeichnis: x:\Blobbite\P25Images_extract\ImagesExtract2
+2025-04-25 19:35:04,210 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-04-25 19:35:04,213 - [INFO] Datumsordner erstellt: x:\Blobbite\P25Images_extract\ImagesExtract2\image\250425_11
+2025-04-25 19:35:04,214 - [INFO] Modul Convert.py gefunden unter:
+x:\Blobbite\P25Images_extract\ImagesExtract2\spelling\Convert.py
+2025-04-25 19:35:04,214 - [INFO] Modul Folders.py gefunden unter:
+x:\Blobbite\P25Images_extract\ImagesExtract2\mdouls\Folders.py
+2025-04-25 19:35:04,214 - [INFO] Starte Modul: Convert.py
+2025-04-25 19:35:04,274 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
+'x:\\Blobbite\\P25Images_extract\\ImagesExtract2\\spelling\\Convert.py',
+'x:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250425_11']' returned non-zero
+exit status 1.
 
 🐍 --- startskript.py ---
 #!/usr/bin/env python3
@@ -130,7 +246,9 @@ import os
 import sys
 import json
 import subprocess
+import shutil
 from pathlib import Path
+from datetime import datetime
 
 # Basispfad des Projekts ermitteln (Verzeichnis, in dem das Skript liegt)
 base_directory = Path(__file__).parent.absolute()
@@ -138,10 +256,12 @@ base_directory = Path(__file__).parent.absolute()
 # Pfade zu den wichtigen Verzeichnissen
 modules_directory = base_directory / "mdouls"  # Beachte die Schreibweise aus der Dateistruktur
 settings_directory = base_directory / "settings"
+spelling_directory = base_directory / "spelling"  # Neues Verzeichnis hinzugefügt
 start_config_path = settings_directory / "start.json"
 
 # Importpfad für Module hinzufügen
 sys.path.append(str(modules_directory))
+sys.path.append(str(spelling_directory))  # Auch das spelling-Verzeichnis zum Importpfad hinzufügen
 
 # Logger importieren
 try:
@@ -168,21 +288,123 @@ except Exception as e:
     log_message(f"Fehler beim Laden der Konfiguration: {e}", level="error")
     sys.exit(1)
 
+# Ordnerkonfiguration verarbeiten
+folder_config = start_config.get("folder", {})
+folder_name = folder_config.get("foldername", "image")
+folder_path = folder_config.get("folderpath")
+entrance_path = folder_config.get("entrancepath")
+
+# Eingangsverzeichnis anzeigen wenn gesetzt
+if entrance_path:
+    log_message(f"Eingangsverzeichnis (entrancepath): {entrance_path}", level="info")
+else:
+    log_message("Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.", level="info")
+
+# Erstelle den Zielordner basierend auf der Konfiguration
+work_directory = base_directory
+
+# Aktuelles Datum im Format JJMMTT
+current_date = datetime.now().strftime("%y%m%d")
+
+# Erstelle den Hauptordner
+main_folder_path = work_directory / folder_name
+if not main_folder_path.exists():
+    try:
+        main_folder_path.mkdir(parents=True)
+        log_message(f"Hauptordner erstellt: {main_folder_path}", level="info")
+    except Exception as e:
+        log_message(f"Fehler beim Erstellen des Hauptordners: {e}", level="error")
+        sys.exit(1)
+
+# Bestimme, ob bereits Datumsordner existieren
+existing_folders = []
+try:
+    for folder in os.listdir(main_folder_path):
+        folder_path_obj = main_folder_path / folder
+        if folder_path_obj.is_dir() and folder.startswith(current_date):
+            existing_folders.append(folder)
+except Exception as e:
+    log_message(f"Fehler beim Auflisten der Ordner: {e}", level="error")
+
+# Bestimme den neuen Ordnernamen
+if not existing_folders:
+    new_folder_name = current_date
+else:
+    # Finde die höchste Nummer und erhöhe sie um 1
+    max_suffix = 0
+    for folder in existing_folders:
+        if "_" in folder:
+            try:
+                suffix = int(folder.split("_")[1])
+                max_suffix = max(max_suffix, suffix)
+            except (ValueError, IndexError):
+                pass
+    new_folder_name = f"{current_date}_{max_suffix+1:02d}"
+
+# Erstelle den datumsspezifischen Unterordner
+date_folder_path = main_folder_path / new_folder_name
+try:
+    date_folder_path.mkdir(parents=True, exist_ok=True)
+    log_message(f"Datumsordner erstellt: {date_folder_path}", level="info")
+except Exception as e:
+    log_message(f"Fehler beim Erstellen des Datumsordners: {e}", level="error")
+    sys.exit(1)
+
+# Wenn ein externer Pfad angegeben ist, verschiebe den Ordner dorthin
+if folder_path and folder_path.lower() != "none":
+    try:
+        # Erstelle den Zielpfad falls nicht vorhanden
+        target_path = Path(folder_path)
+        if not target_path.exists():
+            target_path.mkdir(parents=True, exist_ok=True)
+
+        # Zielpfad für den verschobenen Ordner
+        target_folder_path = target_path / folder_name
+
+        # Wenn der Ordner bereits am Ziel existiert, lösche ihn
+        if target_folder_path.exists():
+            shutil.rmtree(target_folder_path)
+
+        # Verschiebe den Ordner
+        shutil.move(str(main_folder_path), str(target_path))
+        log_message(f"Ordner verschoben nach: {target_folder_path}", level="info")
+
+        # Arbeitsverzeichnis aktualisieren
+        work_directory = target_path
+    except Exception as e:
+        log_message(f"Fehler beim Verschieben des Ordners: {e}", level="error")
+        # Fahre mit dem lokalen Pfad fort
+
 # Liste der auszuführenden Skripte vorbereiten
 scripts_to_run = []
 for module in start_config.get("modules", []):
     module_name = module.get("name")
     module_enabled = module.get("enabled", False)
-    
+
     if not module_name or not module_enabled:
         continue
-    
-    module_path = modules_directory / module_name
-    
-    if module_path.exists():
+
+    # Prüfe in mehreren Verzeichnissen nach dem Modul
+    search_paths = [
+        modules_directory / module_name,  # mdouls-Verzeichnis
+        base_directory / module_name,     # Hauptverzeichnis
+        settings_directory / module_name,  # settings-Verzeichnis
+        spelling_directory / module_name,  # spelling-Verzeichnis (neu hinzugefügt)
+    ]
+
+    module_path = None
+    for path in search_paths:
+        if path.exists():
+            module_path = path
+            log_message(f"Modul {module_name} gefunden unter: {module_path}", level="info")
+            break
+
+    if module_path:
         scripts_to_run.append((module_name, str(module_path)))
     else:
-        log_message(f"Modul {module_name} nicht gefunden unter {module_path}", level="warning")
+        search_locations = "mdouls, Hauptverzeichnis, settings und spelling"
+        log_message(f"Modul {module_name} nicht gefunden. Gesucht in: {search_locations}", level="warning")
+        log_message(f"Suchpfade: {', '.join(str(p) for p in search_paths)}", level="info")
 
 # Skripte ausführen
 for script_name, script_path in scripts_to_run:
@@ -190,7 +412,11 @@ for script_name, script_path in scripts_to_run:
 
     try:
         # Starte das Skript mit dem aktuellen Verzeichnis als Argument
-        subprocess.run(["python", script_path, str(base_directory)], check=True)
+        # Wenn ein neues Arbeitsverzeichnis definiert wurde, übergebe dieses
+        if folder_path and folder_path.lower() != "none":
+            subprocess.run(["python", script_path, str(target_folder_path / new_folder_name)], check=True)
+        else:
+            subprocess.run(["python", script_path, str(date_folder_path)], check=True)
         log_message(f"Modul {script_name} erfolgreich beendet", level="info")
     except subprocess.CalledProcessError as e:
         log_message(f"Fehler bei der Ausführung von {script_name}: {e}", level="error")
@@ -202,7 +428,8 @@ log_separator()
 enter_confirmation = start_config.get("settings", {}).get("enter_confirmation", False)
 if enter_confirmation:
     input("Drücken Sie die Enter-Taste, um das Programm zu beenden...")
-🐍 --- mdouls\folders.py ---
+
+🐍 --- init\folders.py ---
 #!/usr/bin/env python3
 import os
 import sys
@@ -221,6 +448,7 @@ else:
 
 # Füge das Modulverzeichnis zum Pfad hinzu
 script_dir = os.path.dirname(os.path.abspath(__file__))
+base_dir = os.path.dirname(script_dir)  # Übergeordnetes Verzeichnis (Projektverzeichnis)
 modules_dir = script_dir  # Wir sind bereits im mdouls-Verzeichnis
 sys.path.append(modules_dir)
 
@@ -242,7 +470,8 @@ try:
         supported_extensions,
         get_folders_mapping,
         get_spelling_config,
-        is_module_enabled
+        is_module_enabled,
+        get_folder_config
     )
 except ImportError as e:
     print(f"Fehler beim Importieren von Modulen: {e}")
@@ -262,14 +491,14 @@ def create_date_folder(target_directory):
     """
     # Aktuelles Datum im Format JJMMTT
     current_date = datetime.now().strftime("%y%m%d")
-    
+
     # Prüfe, ob bereits ein Ordner mit diesem Datum existiert
     existing_folders = []
     for folder in os.listdir(target_directory):
         folder_path = os.path.join(target_directory, folder)
         if os.path.isdir(folder_path) and folder.startswith(current_date):
             existing_folders.append(folder)
-    
+
     # Bestimme den neuen Ordnernamen
     if not existing_folders:
         new_folder_name = current_date
@@ -281,7 +510,7 @@ def create_date_folder(target_directory):
                 suffix = int(folder.split("_")[1])
                 max_suffix = max(max_suffix, suffix)
         new_folder_name = f"{current_date}_{max_suffix+1:02d}"
-    
+
     # Erstelle den neuen Ordner
     new_folder_path = os.path.join(target_directory, new_folder_name)
     try:
@@ -290,7 +519,7 @@ def create_date_folder(target_directory):
     except Exception as e:
         log_message(f"Fehler beim Erstellen des Datumsordners: {e}", level="error")
         return None
-    
+
     # Erstelle die notwendigen Unterordner (02-format und 03-collation-Ordner)
     output_folder = os.path.join(new_folder_path, f"02-{output_format}")
     try:
@@ -298,7 +527,7 @@ def create_date_folder(target_directory):
         log_message(f"Ausgabeordner erstellt: {shorten_path(output_folder)}", level="info")
     except Exception as e:
         log_message(f"Fehler beim Erstellen des Ausgabeordners: {e}", level="error")
-    
+
     # Erstelle alle 03-Ordner basierend auf foldes.json
     for folder_key, folder_name in folders_mapping.items():
         collation_folder_name = f"03-{folder_name}"
@@ -308,7 +537,7 @@ def create_date_folder(target_directory):
             log_message(f"Collation-Ordner erstellt: {shorten_path(collation_folder_path)}", level="info")
         except Exception as e:
             log_message(f"Fehler beim Erstellen des Collation-Ordners: {e}", level="error")
-    
+
     return new_folder_path
 
 def find_existing_output_folder(parent_folder):
@@ -317,10 +546,10 @@ def find_existing_output_folder(parent_folder):
     Falls dieser nicht existiert, wird ein anderer Ordner, der mit "02-" beginnt, zurückgegeben.
     """
     preferred_folder = os.path.join(parent_folder, f"02-{output_format}")
-    
+
     if os.path.exists(preferred_folder):
         return preferred_folder
-    
+
     # Falls der bevorzugte Ordner nicht existiert, suche nach irgendeinem Ordner, der mit "02-" anfängt.
     for folder in os.listdir(parent_folder):
         folder_path = os.path.join(parent_folder, folder)
@@ -332,32 +561,17 @@ def find_existing_output_folder(parent_folder):
 def process_folders():
     """
     Hauptfunktion zur Verarbeitung der Ordnerstruktur:
-    1. Erstellt ggf. einen neuen Datumsordner im _imageext-Verzeichnis
-    2. Erstellt die notwendigen Unterordner basierend auf JSON-Konfigurationen
+    1. Verwendet den übergebenen Verzeichnispfad (häufig bereits der Datumsordner)
+    2. Prüft, ob die erforderlichen Unterordner existieren, falls nicht werden sie erstellt
     """
     log_separator()
     log_message(f"Verarbeite Ordnerstruktur in: {shorten_path(working_dir)}", level="info")
-    
-    # Prüfe, ob ein Datumsordner bereits existiert
-    try:
-        latest_date_folder = find_latest_date_folder(working_dir)
-        if latest_date_folder:
-            log_message(f"Vorhandener Datumsordner gefunden: {shorten_path(latest_date_folder)}", level="info")
-            parent_folder = latest_date_folder
-        else:
-            # Erstelle einen neuen Datumsordner
-            parent_folder = create_date_folder(working_dir)
-            if not parent_folder:
-                log_message("Kein Datumsordner gefunden und Erstellung fehlgeschlagen. Abbruch.", level="error")
-                return
-    except Exception as e:
-        log_message(f"Fehler bei der Verarbeitung von Datumsordnern: {e}", level="error")
-        # Erstelle einen neuen Datumsordner als Fallback
-        parent_folder = create_date_folder(working_dir)
-        if not parent_folder:
-            log_message("Kein Datumsordner gefunden und Erstellung fehlgeschlagen. Abbruch.", level="error")
-            return
-    
+
+    # Da der Arbeitsordner bereits von startskript.py erstellt wurde,
+    # verwenden wir direkt den übergebenen Pfad
+    parent_folder = working_dir
+    log_message(f"Arbeite im Ordner: {shorten_path(parent_folder)}", level="info")
+
     # Überprüfe, ob die 02- und 03-Ordner existieren, ansonsten erstelle sie
     output_folder = find_existing_output_folder(parent_folder)
     if not output_folder:
@@ -367,7 +581,7 @@ def process_folders():
             log_message(f"Ausgabeordner erstellt: {shorten_path(output_folder)}", level="info")
         except Exception as e:
             log_message(f"Fehler beim Erstellen des Ausgabeordners: {e}", level="error")
-    
+
     # Erstelle alle 03-Ordner basierend auf foldes.json
     for folder_key, folder_name in folders_mapping.items():
         collation_folder_name = f"03-{folder_name}"
@@ -378,13 +592,14 @@ def process_folders():
                 log_message(f"Collation-Ordner erstellt: {shorten_path(collation_folder_path)}", level="info")
             except Exception as e:
                 log_message(f"Fehler beim Erstellen des Collation-Ordners: {e}", level="error")
-    
+
     log_separator()
     log_message("Ordnerstruktur erfolgreich erstellt/aktualisiert.", level="info")
 
 if __name__ == "__main__":
     process_folders()
-🐍 --- mdouls\logger.py ---
+
+🐍 --- init\logger.py ---
 import logging
 import os
 import json
@@ -573,7 +788,7 @@ def log_separator():
 def log_sub_separator():
     """Fügt eine Untertrennlinie in den Log ein (z. B. zur Gruppierung von Dateioperationen)."""
     log_message("- " * 33, level="info")
-🐍 --- mdouls\utils.py ---
+🐍 --- init\utils.py ---
 #!/usr/bin/env python3
 import os
 import re
@@ -588,7 +803,7 @@ except ImportError:
     # Einfache Ersatzfunktionen, falls Logger noch nicht verfügbar
     def log_message(message, level="info"):
         print(f"[{level.upper()}] {message}")
-    
+
     def shorten_path(path, max_length=45):
         if len(str(path)) > max_length:
             part_length = (max_length - 3) // 2
@@ -607,11 +822,11 @@ def load_start_config():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     base_dir = os.path.dirname(script_dir)  # Übergeordnetes Verzeichnis von mdouls
     config_path = os.path.join(base_dir, "settings", "start.json")
-    
+
     if not os.path.exists(config_path):
         log_message(f"start.json nicht gefunden: {shorten_path(config_path)}", level="warning")
         return {}
-    
+
     try:
         with open(config_path, 'r', encoding='utf-8') as f:
             config = json.load(f)
@@ -630,11 +845,11 @@ def load_json_config(file_name):
     script_dir = os.path.dirname(os.path.abspath(__file__))
     base_dir = os.path.dirname(script_dir)  # Übergeordnetes Verzeichnis von mdouls
     config_path = os.path.join(base_dir, "settings", file_name)
-    
+
     if not os.path.exists(config_path):
         log_message(f"{file_name} nicht gefunden: {shorten_path(config_path)}", level="warning")
         return {}
-    
+
     try:
         with open(config_path, 'r', encoding='utf-8') as f:
             config = json.load(f)
@@ -644,6 +859,22 @@ def load_json_config(file_name):
         log_message(f"Fehler beim Laden von {file_name}: {e}", level="error")
         return {}
 
+def get_folder_config():
+    """
+    Lädt die Ordnerkonfiguration aus start.json und gibt sie zurück.
+    Gibt ein standardmäßiges Dictionary zurück, wenn keine Konfiguration existiert.
+    """
+    config = load_start_config()
+    folder_config = config.get("folder", {})
+
+    # Standardwerte festlegen, falls nicht vorhanden
+    if not "foldername" in folder_config:
+        folder_config["foldername"] = "image"
+    if not "folderpath" in folder_config:
+        folder_config["folderpath"] = None
+
+    log_message(f"Ordner-Konfiguration geladen: {folder_config}", level="info")
+    return folder_config
 def get_folders_mapping():
     """Lädt die foldes.json-Datei und gibt die Ordnerzuordnung zurück."""
     folders_config = load_json_config("foldes.json")
@@ -681,7 +912,7 @@ def save_start_config(config):
     script_dir = os.path.dirname(os.path.abspath(__file__))
     base_dir = os.path.dirname(script_dir)
     config_path = os.path.join(base_dir, "settings", "start.json")
-    
+
     try:
         with open(config_path, 'w', encoding='utf-8') as f:
             json.dump(config, f, indent=2)
@@ -709,29 +940,29 @@ def find_latest_date_folder(search_dir):
     """
     Sucht im search_dir nach Ordnern, deren Name dem Muster JJMMTT oder JJMMTT_XX entspricht,
     und liefert den (alphabetisch) letzten zurück.
-    
+
     Nutzt log_message und shorten_path zur Protokollierung.
     """
     log_message(f"Suche nach Datumsordnern in: {shorten_path(search_dir)}", level="info")
-    
+
     try:
         entries = os.listdir(search_dir)
     except Exception as e:
         log_message(f"Verzeichnis {search_dir} konnte nicht gelesen werden: {e}", level="error")
         return None
-    
+
     date_folders = sorted(
-        [d for d in entries 
+        [d for d in entries
          if os.path.isdir(os.path.join(search_dir, d)) and re.match(r"^\d{6}(_\d{2})?$", d)],
         reverse=True
     )
-    
+
     log_message(f"Gefundene Datumsordner: {date_folders}", level="info")
-    
+
     if not date_folders:
         log_message("Kein gültiger Datumsordner (JJMMTT oder JJMMTT_XX) gefunden.", level="warning")
         return None
-    
+
     latest_folder = os.path.join(search_dir, date_folders[0])
     log_message(f"Neuester Datumsordner: {shorten_path(latest_folder)}", level="info")
     return latest_folder
@@ -740,112 +971,305 @@ def find_latest_date_folder(search_dir):
 # Unterstützte Dateiformate
 # ----------------------------------------------------------
 supported_extensions = ['png', 'jpg', 'jpeg', 'bmp', 'tiff', 'webp']
-🐍 --- script\script_manager.py ---
-from __future__ import annotations
 
-import importlib
+🐍 --- moduls\convert.py ---
+import os
+import configparser
+import sys
+import datetime
 import json
+from PIL import Image
+from pathlib import Path
+
+# Pfad zum mdouls-Verzeichnis hinzufügen
+script_directory = os.path.dirname(os.path.abspath(__file__))
+base_directory = os.path.dirname(script_directory)
+modules_directory = os.path.join(base_directory, "mdouls")
+sys.path.append(modules_directory)
+
+# Jetzt können die Module importiert werden
+try:
+    from logger import log_message, log_separator, shorten_path, init_logger, ICON_SUCCESS, ICON_ERROR, ICON_WARN, ICON_DELETE, ICON_ARROW
+    from utils import load_start_config
+except ImportError as e:
+    print(f"Fehler beim Importieren von Modulen: {e}")
+    sys.exit(1)
+
+# **1. LOAD SETTINGS.INI**
+config_path = os.path.join(script_directory, "settings.ini")
+config = configparser.ConfigParser()
+config.read(config_path)
+
+output_format = config["Settings"]["output_format"]
+if not output_format.startswith("."):
+    output_format = "." + output_format
+output_format = output_format.lower()
+
+supported_formats = [".webp", ".bmp", ".jpg", ".jpeg", ".png", ".tiff"]
+
+# **2. START.JSON KONFIGURATION LADEN**
+start_config = load_start_config()
+folder_config = start_config.get("folder", {})
+
+# **3. ENTRANCE PATH AUSLESEN**
+entrance_path = folder_config.get("entrancepath")
+
+# **4. CHECK HOW THE SCRIPT WAS STARTED**
+if len(sys.argv) > 1:
+    # Arbeitsverzeichnis (wohin die Dateien geschrieben werden)
+    base_folder = sys.argv[1]
+else:
+    base_folder = os.getcwd()
+
+# **5. EINGANGSVERZEICHNIS BESTIMMEN**
+source_folder = entrance_path if entrance_path else base_folder
+source_folder = Path(source_folder)
+
+# Überprüfen, ob das Eingangsverzeichnis existiert
+if not source_folder.exists():
+    print(f"Fehler: Das Eingangsverzeichnis '{source_folder}' existiert nicht.")
+    sys.exit(1)
+
+# **6. CHECK IF FILES EXIST (BEFORE CREATING A FOLDER)**
+files_to_convert = [
+    file for file in os.listdir(source_folder)
+    if os.path.splitext(file)[1].lower() in supported_formats
+]
+
+if not files_to_convert:
+    print(f"Keine konvertierbaren Dateien im Verzeichnis '{source_folder}' gefunden. Skript wird beendet.")
+    sys.exit(0)  # Exit script
+
+# **7. INITIALIZE LOGGER**
+init_logger(base_folder)
+script_name = os.path.basename(__file__)  # Dynamically get the script's filename
+log_message(f"{script_name} gestartet mit Zielordner: {shorten_path(base_folder)}", level="info")
+log_message(f"Eingangsverzeichnis: {shorten_path(str(source_folder))}", level="info")
+
+# **8. CREATE NEW DATE-NAMED FOLDER**
+today_str = datetime.datetime.now().strftime("%y%m%d")
+new_folder = os.path.join(base_folder, today_str)
+
+counter = 1
+while os.path.exists(new_folder):
+    new_folder = os.path.join(base_folder, f"{today_str}_{counter:02d}")
+    counter += 1
+
+os.makedirs(new_folder)
+log_message(f"Neuer Arbeitsordner: {shorten_path(new_folder)}", level="info")
+
+# **9. AUTOMATICALLY SORT & MOVE FILES**
+log_separator()
+log_message("Sortiere Dateien:", level="info")
+
+file_dict = {}
+
+for file in files_to_convert:
+    file_ext = os.path.splitext(file)[1].lower()
+    target_folder = os.path.join(new_folder, f"01-{file_ext.strip('.')}")
+    os.makedirs(target_folder, exist_ok=True)
+
+    original_path = os.path.join(source_folder, file)
+    new_path = os.path.join(target_folder, file)
+
+    # Kopieren statt Verschieben, wenn Quelle und Ziel unterschiedlich sind
+    if str(source_folder) != base_folder:
+        import shutil
+        shutil.copy2(original_path, new_path)
+        log_message(f"  - {file} {ICON_ARROW} {shorten_path(target_folder)} (kopiert)", level="info")
+    else:
+        os.rename(original_path, new_path)
+        log_message(f"  - {file} {ICON_ARROW} {shorten_path(target_folder)} (verschoben)", level="info")
+
+    if file_ext not in file_dict:
+        file_dict[file_ext] = []
+    file_dict[file_ext].append(new_path)
+
+# **10. CREATE OUTPUT FOLDER**
+output_folder = os.path.join(new_folder, f"02-{output_format.strip('.')}")
+os.makedirs(output_folder, exist_ok=True)
+
+# **11. START CONVERSION**
+log_separator()
+log_message(f"Starte Konvertierung nach {output_format.upper()}", level="info")
+
+for file_ext, files in file_dict.items():
+    for file_path in files:
+        file_name = os.path.basename(file_path)
+        output_file = os.path.splitext(file_name)[0] + output_format
+        output_path = os.path.join(output_folder, output_file)
+
+        try:
+            with Image.open(file_path) as img:
+                img.save(output_path, output_format.strip(".").upper())
+            log_message(f"  - {file_name} {ICON_ARROW} {output_file} {ICON_SUCCESS} Erfolgreich ", level="info")
+        except Exception as e:
+            log_message(f"  - {file_name} {ICON_ERROR} Fehler: {e}", level="error")
+
+log_separator()
+log_message(f"Alle konvertierten Dateien wurden gespeichert in\n'{shorten_path(output_folder)}'.", level="info")
+
+🐍 --- moduls\prepareInput.py ---
+#!/usr/bin/env python3
 import os
 import sys
-from types import ModuleType
-from typing import Any, Dict, List
+import shutil
+from pathlib import Path
 
-from _logger import init_logger, log_message, log_separator
-from _utils import load_settings_ini, find_latest_date_folder
+# Prüfen, ob ein Pfadargument übergeben wurde
+if len(sys.argv) > 1:
+    # Verwende das übergebene Verzeichnis
+    working_dir = sys.argv[1]
+else:
+    # Ansonsten Standardverzeichnis verwenden
+    working_dir = os.getcwd()
 
-CONFIG_FILENAME = "modules_config.json"
+# Füge das Modulverzeichnis zum Pfad hinzu
+script_dir = os.path.dirname(os.path.abspath(__file__))
+base_dir = os.path.dirname(script_dir)  # Übergeordnetes Verzeichnis (Projektverzeichnis)
+modules_dir = os.path.join(base_dir, "mdouls")
+sys.path.append(modules_dir)
 
+try:
+    from logger import (
+        log_message,
+        log_separator,
+        log_sub_separator,
+        shorten_path,
+        init_logger,
+        ICON_SUCCESS,
+        ICON_ERROR,
+        ICON_WARN,
+        ICON_INFO,
+        ICON_ARROW
+    )
+    from utils import (
+        load_start_config,
+        load_json_config,
+        get_output_format,
+        find_latest_date_folder,
+        supported_extensions
+    )
+except ImportError as e:
+    print(f"Fehler beim Importieren von Modulen: {e}")
+    sys.exit(1)
 
-def _load_module(module_name: str) -> ModuleType | None:
-    """Importiert ein Modul dynamisch und gibt es zurück oder ``None`` bei Fehler."""
+# Logger initialisieren
+init_logger(working_dir)
+
+# Ausgabeformat und Ordnerzuordnungen laden
+start_config = load_start_config()
+output_format = get_output_format()
+folder_config = start_config.get("folder", {})
+
+def find_images_in_directory(directory):
+    """
+    Durchsucht das angegebene Verzeichnis nach Bilddateien und gibt eine Liste von Dateipfaden zurück.
+    """
+    image_files = []
     try:
-        return importlib.import_module(module_name)
-    except Exception as exc:  # noqa: BLE001
-        log_message(f"[ERROR] Modul '{module_name}' konnte nicht importiert werden: {exc}", level="error")
-        return None
+        for root, _, files in os.walk(directory):
+            for file in files:
+                file_ext = os.path.splitext(file)[1].lower().lstrip('.')
+                if file_ext in supported_extensions:
+                    image_files.append(os.path.join(root, file))
+    except Exception as e:
+        log_message(f"Fehler beim Durchsuchen des Verzeichnisses {directory}: {e}", level="error")
+    
+    log_message(f"{len(image_files)} Bilddateien gefunden.", level="info")
+    return image_files
 
+def sort_images_by_format(image_files, date_folder):
+    """
+    Sortiert die gefundenen Bilddateien nach ihrem Format und kopiert sie in entsprechende Unterordner.
+    """
+    format_count = {}  # Zählt, wie viele Dateien pro Format verarbeitet wurden
+    
+    for file_path in image_files:
+        try:
+            file_name = os.path.basename(file_path)
+            file_ext = os.path.splitext(file_name)[1].lower().lstrip('.')
+            
+            # Erstelle einen Unterordner für dieses Format
+            format_folder = os.path.join(date_folder, f"01-{file_ext}")
+            os.makedirs(format_folder, exist_ok=True)
+            
+            # Zielort für die Datei
+            target_path = os.path.join(format_folder, file_name)
+            
+            # Prüfe, ob die Zieldatei bereits existiert
+            if os.path.exists(target_path):
+                log_message(f"Datei existiert bereits: {shorten_path(target_path)}", level="warning")
+                # Optional: Füge einen Zähler hinzu, um Duplikate zu vermeiden
+                counter = 1
+                base_name, ext = os.path.splitext(file_name)
+                while os.path.exists(target_path):
+                    new_name = f"{base_name}_{counter}{ext}"
+                    target_path = os.path.join(format_folder, new_name)
+                    counter += 1
+                log_message(f"Verwende alternativen Namen: {os.path.basename(target_path)}", level="info")
+            
+            # Kopiere die Datei
+            shutil.copy2(file_path, target_path)
+            log_message(f"{file_name} {ICON_ARROW} {shorten_path(format_folder)}", level="info")
+            
+            # Zähle die verarbeitete Datei
+            format_count[file_ext] = format_count.get(file_ext, 0) + 1
+            
+        except Exception as e:
+            log_message(f"Fehler beim Verarbeiten von {shorten_path(file_path)}: {e}", level="error")
+    
+    # Ausgabe der Statistik
+    log_separator()
+    log_message("Übersicht der verarbeiteten Dateien:", level="info")
+    for fmt, count in format_count.items():
+        log_message(f"  - Format .{fmt}: {count} Dateien", level="info")
+    
+    return format_count
 
-def _run_module_on_folder(module: ModuleType, folder: str) -> None:
-    """Ruft ``process_folder`` des Moduls für den gegebenen Ordner auf."""
-    process_fn = getattr(module, "process_folder", None)
-    if not callable(process_fn):
-        log_message(
-            f"[ERROR] Modul '{module.__name__}' besitzt keine Funktion 'process_folder(folder_path)'.", level="error"
-        )
-        return
-
-    try:
-        process_fn(folder)
-        log_message(f"Modul '{module.__name__}' erfolgreich auf '{folder}' angewendet.", level="info")
-    except Exception as exc:  # noqa: BLE001
-        log_message(f"[ERROR] Fehler in '{module.__name__}' für '{folder}': {exc}", level="error")
-
-
-def main() -> None:
+def prepare_input():
+    """
+    Hauptfunktion: Scannt Eingangsordner nach Bildern und sortiert sie nach Formaten.
+    """
+    log_separator()
+    log_message("Starte Vorbereitung der Eingabebilder", level="info")
+    
+    # Bestimme das Arbeitsverzeichnis
     base_dir = os.getcwd()
-    init_logger(base_dir)
-
-    settings = load_settings_ini()
+    
+    # Finde den aktuellen Datumsordner
     latest_date_folder = find_latest_date_folder(base_dir)
+    
     if not latest_date_folder:
-        log_message("[FATAL] Kein gültiger Datum‑Ordner gefunden.", level="error")
-        sys.exit(1)
-
-    config_path = os.path.join(base_dir, CONFIG_FILENAME)
-    if not os.path.isfile(config_path):
-        log_message(f"[FATAL] Konfigurationsdatei '{CONFIG_FILENAME}' nicht gefunden.", level="error")
-        sys.exit(1)
-
-    with open(config_path, "r", encoding="utf-8") as fh:
-        config: Dict[str, Any] = json.load(fh)
-
-    modules_cfg: List[Dict[str, Any]] = config.get("modules", [])
-    if not modules_cfg:
-        log_message("[FATAL] Keine Module in der Konfiguration gefunden.", level="error")
-        sys.exit(1)
-
+        log_message("Kein gültiger Datumsordner gefunden. Beende PrepareInput.", level="error")
+        return
+    
+    log_message(f"Arbeite im Datumsordner: {shorten_path(latest_date_folder)}", level="info")
+    
+    # 1. Bestimme den Eingabeordner (entweder aus Konfiguration oder als Parameter)
+    input_folder = folder_config.get("inputpath", base_dir)
+    if input_folder.lower() == "none":
+        input_folder = base_dir
+    
+    log_message(f"Suche Bilder in: {shorten_path(input_folder)}", level="info")
+    
+    # 2. Finde alle Bilddateien im Eingabeordner
+    image_files = find_images_in_directory(input_folder)
+    
+    if not image_files:
+        log_message("Keine Bilddateien gefunden. Beende PrepareInput.", level="warning")
+        return
+    
+    # 3. Sortiere die Bilder nach Formaten
+    log_sub_separator()
+    log_message("Sortiere Bilder nach Formaten:", level="info")
+    sort_images_by_format(image_files, latest_date_folder)
+    
     log_separator()
-    log_message("Starte Modul‑Verarbeitung …", level="info")
+    log_message("Vorbereitung der Eingabebilder abgeschlossen", level="info")
 
-    for mod_cfg in modules_cfg:
-        name: str = mod_cfg.get("name", "")
-        if not name:
-            log_message("[WARN] Ein Eintrag ohne Modulnamen wurde übersprungen.", level="warning")
-            continue
-        if not mod_cfg.get("enabled", True):
-            log_message(f"Modul '{name}' ist deaktiviert – überspringe.", level="info")
-            continue
-
-        module = _load_module(name)
-        if module is None:
-            continue  # Fehler wurde bereits geloggt
-
-        folders_keys: List[str] = mod_cfg.get("folders", [])
-        if not folders_keys:
-            log_message(f"[WARN] Modul '{name}' hat keine Zielordner definiert.", level="warning")
-            continue
-
-        for key in folders_keys:
-            folder_setting = settings.get("Settings", key, fallback=None)
-            if not folder_setting:
-                log_message(f"[WARN] Schlüssel '{key}' nicht in settings.ini gefunden.", level="warning")
-                continue
-            folder_name = f"03-{folder_setting}"
-            target_folder = os.path.join(latest_date_folder, folder_name)
-            if not os.path.isdir(target_folder):
-                log_message(f"[WARN] Ordner '{target_folder}' existiert nicht.", level="warning")
-                continue
-
-            log_message(f"[RUN] {name} -> {target_folder}", level="info")
-            _run_module_on_folder(module, target_folder)
-
-    log_separator()
-    log_message("Alle aktiven Module wurden ausgeführt.", level="info")
-
-
-if __name__ == "__main__":  # pragma: no cover
-    main()
-
+if __name__ == "__main__":
+    prepare_input()
 🐍 --- spelling\CleanUp.py ---
 import os
 import configparser
@@ -1165,101 +1589,6 @@ def create_collation_folders():
 if __name__ == "__main__":
     create_collation_folders()
 
-🐍 --- spelling\ConvertWebp.py ---
-import os
-import configparser
-import sys
-import datetime
-from PIL import Image
-from _logger import log_message, log_separator, shorten_path, init_logger, ICON_SUCCESS, ICON_ERROR, ICON_WARN, ICON_DELETE, ICON_ARROW
-
-# **1. LOAD SETTINGS.INI**
-script_directory = os.path.dirname(os.path.abspath(__file__))
-config_path = os.path.join(script_directory, "settings.ini")
-
-config = configparser.ConfigParser()
-config.read(config_path)
-
-output_format = config["Settings"]["output_format"]
-supported_formats = [".webp", ".bmp", ".jpg", ".jpeg", ".png", ".tiff"]
-
-# **2. CHECK HOW THE SCRIPT WAS STARTED**
-if len(sys.argv) > 1:
-    base_folder = sys.argv[1]
-else:
-    base_folder = os.getcwd()
-
-# **CHECK IF FILES EXIST (BEFORE CREATING A FOLDER)**
-files_to_convert = [
-    file for file in os.listdir(base_folder)
-    if os.path.splitext(file)[1].lower() in supported_formats
-]
-
-if not files_to_convert:
-    log_message("No convertible files found. Script will exit.", level="warning")
-    sys.exit(0)  # Exit script
-
-# **INITIALIZE LOGGER**
-init_logger(base_folder)
-script_name = os.path.basename(__file__)  # Dynamically get the script's filename
-log_message(f"{script_name} started with Input-Folder: {shorten_path(base_folder)}", level="info")
-
-# **3. CREATE NEW DATE-NAMED FOLDER**
-today_str = datetime.datetime.now().strftime("%y%m%d")
-new_folder = os.path.join(base_folder, today_str)
-
-counter = 1
-while os.path.exists(new_folder):
-    new_folder = os.path.join(base_folder, f"{today_str}_{counter:02d}")
-    counter += 1
-
-os.makedirs(new_folder)
-log_message(f"New working folder: {shorten_path(new_folder)}", level="info")
-
-# **4. AUTOMATICALLY SORT & MOVE FILES**
-log_separator()
-log_message("Sorting files:", level="info")
-
-file_dict = {}
-
-for file in files_to_convert:
-    file_ext = os.path.splitext(file)[1].lower()
-    target_folder = os.path.join(new_folder, f"01-{file_ext.strip('.')}")
-    os.makedirs(target_folder, exist_ok=True)
-
-    original_path = os.path.join(base_folder, file)
-    new_path = os.path.join(target_folder, file)
-    os.rename(original_path, new_path)
-
-    if file_ext not in file_dict:
-        file_dict[file_ext] = []
-    file_dict[file_ext].append(new_path)
-
-    log_message(f"  - {file} {ICON_ARROW} {shorten_path(target_folder)}", level="info")
-
-# **5. CREATE OUTPUT FOLDER**
-output_folder = os.path.join(new_folder, f"02-{output_format.strip('.')}")
-os.makedirs(output_folder, exist_ok=True)
-
-# **6. START CONVERSION**
-log_separator()
-log_message(f"Starting conversion to {output_format.upper()}", level="info")
-
-for file_ext, files in file_dict.items():
-    for file_path in files:
-        file_name = os.path.basename(file_path)
-        output_file = os.path.splitext(file_name)[0] + output_format
-        output_path = os.path.join(output_folder, output_file)
-
-        try:
-            with Image.open(file_path) as img:
-                img.save(output_path, output_format.strip(".").upper())
-            log_message(f"  - {file_name} {ICON_ARROW} {output_file} {ICON_SUCCESS} Successfully ", level="info")
-        except Exception as e:
-            log_message(f"  - {file_name} {ICON_ERROR} Error: {e}", level="error")
-
-log_separator()
-log_message(f"All converted files have been saved in\n'{shorten_path(output_folder)}'.", level="info")
 🐍 --- spelling\Enhancement.py ---
 # ----------------------------------------------------------
 # Einstellungsbereich mit Erklärungen
