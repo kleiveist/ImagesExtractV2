@@ -2,16 +2,30 @@
 ├── 📝 .gitignore
 ├── 📝 InContent.txt
 ├── 📝 README.md
+├── 📂 _log/
+│   ├── 📝 error_log.txt
+│   └── 📝 log.txt
+├── 📂 docs/
+│   ├── 📝 Ablauflogik.md
+│   ├── 📝 doku.md
+│   └── 📝 settings.md
 ├── 📂 entrance/
-├── 📝 error_log.txt
 ├── 📄 ic_01.png
 ├── 📂 image/
-│   ├── 📂 250504/
-│   └── 📂 250504_01/
+│   └── 📂 250504/
+│       ├── 📂 02-png/
+│       ├── 📂 03-Enhancement/
+│       ├── 📂 03-Enhanclean/
+│       ├── 📂 03-Enhancwhite/
+│       ├── 📂 03-Enhwhitclean/
+│       ├── 📂 03-Invert/
+│       ├── 📂 03-Swapcolors/
+│       ├── 📂 03-TransBack/
+│       ├── 📂 03-Transclean/
+│       └── 📂 03-Whitepaper/
 ├── 📂 init/
 │   ├── 🐍 logger.py
 │   └── 🐍 utils.py
-├── 📝 log.txt
 ├── 📂 modules/
 │   ├── 🐍 convert.py
 │   ├── 🐍 folders.py
@@ -46,6 +60,394 @@
 📝 --- InContent.txt ---
 
 📝 --- README.md ---
+# ImagesExtract2
+
+## Inhaltsverzeichnis
+
+* [Projektbeschreibung](#projektbeschreibung)
+* [Projektstruktur](#projektstruktur)
+* [Ablaufübersicht](#ablaufübersicht)
+* [Phasen im Detail](#phasen-im-detail)
+
+  * [Phase 1: Initialisierung](#phase-1-initialisierung)
+  * [Phase 2: Datenvorbereitung](#phase-2-datenvorbereitung)
+  * [Phase 3: Spelling-Steuerung](#phase-3-spelling-steuerung)
+* [Modulübersicht](#modulübersicht)
+* [Konfiguration](#konfiguration)
+* [Installation](#installation)
+* [Entwicklerhinweise](#entwicklerhinweise)
+* [Lizenz](#lizenz)
+
+---
+
+## Projektbeschreibung
+
+ImagesExtract2 ist ein modulares Bildverarbeitungssystem zur effizienten Verarbeitung und strukturierten Ablage großer Bildmengen. Das System ist in drei Hauptphasen unterteilt und kann durch JSON-basierte Konfiguration flexibel erweitert werden.
+
+## Projektstruktur
+
+```plaintext
+ImagesExtract2/
+├── .gitignore
+├── InContent.txt
+├── README.md
+├── entrance/
+├── error_log.txt
+├── ic_01.png
+├── image/
+├── init/
+│   ├── folders.py
+│   ├── logger.py
+│   └── utils.py
+├── log.txt
+├── moduls/
+│   ├── convert.py
+│   └── prepareInput.py
+├── settings/
+│   ├── _archive/
+│   │   └── settings.ini
+│   ├── foldes.json
+│   ├── settings.json
+│   ├── spelling.json
+│   └── start.json
+├── spelling/
+│   ├── CleanUp.py
+│   ├── Collation.py
+│   ├── Enhancement.py
+│   ├── Extract.py
+│   ├── ExtractGray.py
+│   ├── Scal.py
+│   ├── SwapColors.py
+│   ├── TransBack.py
+│   └── invert.py
+└── startskript.py
+```
+
+## Ablaufübersicht
+
+```plaintext
+START
+ |
+ v
+----------------------------------------
+ PHASE 1: INITIALISIERUNG
+----------------------------------------
+ |
+ v
+[Startskript.py] -> Logger -> Utils -> Folders
+ |
+ v
+----------------------------------------
+ PHASE 2: DATENVORBEREITUNG
+----------------------------------------
+ |
+ v
+[PrepareInput.py] -> Converter
+ |
+ v
+----------------------------------------
+ PHASE 3: SPELLING-STEUERUNG
+----------------------------------------
+ |
+ v
+[Spelling.py] -> aktivierte Skripte (Enhancement, Extract, ...)
+ |
+ v
+END
+```
+
+## Phasen im Detail
+
+### Phase 1: Initialisierung
+
+* **startskript.py**: Startpunkt, erstellt Datumsordner, konfiguriert Zielorte und startet alle Module.
+* **logger.py**: Initialisiert Logging (Konsole, `log.txt`, `error_log.txt`).
+* **utils.py**: Bestimmt Arbeitsverzeichnis, lädt JSON-Einstellungen.
+* **folders.py**: Erzeugt Basisordnerstruktur gemäß `settings/foldes.json`.
+
+### Phase 2: Datenvorbereitung
+
+* **PrepareInput.py**: Scannt Eingangsordner, sortiert Bilder in `01_[format]`.
+* **Converter.py**: Konvertiert in Ziel­format (`02_[outputformat]`), verteilt in 03-Ordner.
+
+### Phase 3: Spelling-Steuerung
+
+* **Spelling.py**: Liest `settings/spelling.json`, führt nur Skripte mit `enabled: true` aus:
+
+  * Enhancement
+  * TransBack
+  * Extract
+  * ExtractGray
+  * SwapColors
+  * CleanUp
+  * Scal
+  * Collation
+  * invert
+
+## Modulübersicht
+
+| Modul              | Pfad                       | Aufgabe                                |
+| ------------------ | -------------------------- | -------------------------------------- |
+| Logger             | `init/logger.py`           | Logging-Initialisierung                |
+| Utils              | `init/utils.py`            | Arbeitsverzeichnis, JSON-Einstellungen |
+| Folders            | `modules/folders.py`       | Basisordner erstellen                  |
+| PrepareInput       | `spelling/PrepareInput.py` | Bilder scannen & sortieren             |
+| Converter          | `spelling/Converter.py`    | Bildkonvertierung & Verteilung         |
+| Spelling-Steuerung | `spelling/Spelling.py`     | Steuerung der Nachbearbeitungsskripte  |
+
+## Konfiguration
+
+* **settings/start.json**: Einstellungen zu Datumsordnern.
+* **settings/foldes.json**: Basisordnerstruktur.
+* **settings/spelling.json**: Aktivierte Skripte und Zielordner.
+
+```json
+{
+  "spelling": [
+    {"name": "Enhancement", "enabled": true, "folders": ["03-Enhancement"]},
+    {"name": "Extract",     "enabled": false, "folders": []}
+  ]
+}
+```
+
+## Installation
+
+Voraussetzungen: Python 3.8+
+
+```bash
+pip install -r requirements.txt
+```
+
+## Entwicklerhinweise
+
+* Strikte Trennung der Module.
+* Nur `logger.py` für Ausgaben verwenden.
+* Pfadprüfungen in `utils.py` bzw. Modulen.
+* Fehler werden geloggt, nicht unterdrückt.
+
+## Lizenz
+
+Dieses Projekt steht unter \[Lizenz eintragen].
+
+---
+
+
+🐍 --- startskript.py ---
+#!/usr/bin/env python3
+import os
+import sys
+import json
+import subprocess
+import shutil
+from pathlib import Path
+from datetime import datetime
+
+# Basispfad des Projekts ermitteln
+base_directory = Path(__file__).parent.absolute()
+
+# Pfade zu den wichtigen Verzeichnissen
+modules_directory = base_directory / "modules"
+init_directory = base_directory / "init"      # init-Verzeichnis hinzufügen!
+settings_directory = base_directory / "settings"
+spelling_directory = base_directory / "spelling"
+start_config_path = settings_directory / "start.json"
+
+# Alle Verzeichnisse zum Importpfad hinzufügen
+sys.path.append(str(modules_directory))
+sys.path.append(str(init_directory))          # Dies ist der wichtige Teil!
+sys.path.append(str(spelling_directory))
+
+# Logger importieren (aus init/ Verzeichnis)
+try:
+    from init.logger import log_message, log_separator, init_logger
+except ImportError:
+    print("Fehler: logger.py konnte nicht importiert werden.")
+    sys.exit(1)
+
+# Initialisiere den Logger
+init_logger(str(base_directory))
+
+log_separator()
+log_message(f"Starte Skript im Verzeichnis: {base_directory}", level="info")
+
+# Einstellungen aus start.json laden
+if not start_config_path.exists():
+    log_message(f"Konfigurationsdatei nicht gefunden: {start_config_path}", level="error")
+    sys.exit(1)
+
+try:
+    with open(start_config_path, 'r', encoding='utf-8') as f:
+        start_config = json.load(f)
+except Exception as e:
+    log_message(f"Fehler beim Laden der Konfiguration: {e}", level="error")
+    sys.exit(1)
+
+# Ordnerkonfiguration verarbeiten
+folder_config = start_config.get("folder", {})
+folder_name = folder_config.get("foldername", "image")
+folder_path = folder_config.get("folderpath")
+entrance_path = folder_config.get("entrancepath")
+
+# Eingangsverzeichnis anzeigen wenn gesetzt
+if entrance_path:
+    log_message(f"Eingangsverzeichnis (entrancepath): {entrance_path}", level="info")
+else:
+    log_message("Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.", level="info")
+
+# Erstelle den Zielordner basierend auf der Konfiguration
+work_directory = base_directory
+
+# Aktuelles Datum im Format JJMMTT
+current_date = datetime.now().strftime("%y%m%d")
+
+# Hier beginnt die Fix: korrekter Umgang mit null/None-Werten
+if folder_name is None or folder_name == "null":
+    # Wenn foldername null ist, verwenden wir das Basisverzeichnis direkt
+    main_folder_path = work_directory
+    log_message(f"Verwende Basisverzeichnis direkt: {main_folder_path}", level="info")
+else:
+    # Sonst erstellen wir den definierten Unterordner
+    main_folder_path = work_directory / folder_name
+    if not main_folder_path.exists():
+        try:
+            main_folder_path.mkdir(parents=True)
+            log_message(f"Hauptordner erstellt: {main_folder_path}", level="info")
+        except Exception as e:
+            log_message(f"Fehler beim Erstellen des Hauptordners: {e}", level="error")
+            sys.exit(1)
+
+# Bestimme, ob bereits Datumsordner existieren
+existing_folders = []
+try:
+    for folder in os.listdir(main_folder_path):
+        folder_path_obj = main_folder_path / folder
+        if folder_path_obj.is_dir() and folder.startswith(current_date):
+            existing_folders.append(folder)
+except Exception as e:
+    log_message(f"Fehler beim Auflisten der Ordner: {e}", level="error")
+
+# Bestimme den neuen Ordnernamen
+if not existing_folders:
+    new_folder_name = current_date
+else:
+    # Finde die höchste Nummer und erhöhe sie um 1
+    max_suffix = 0
+    for folder in existing_folders:
+        if "_" in folder:
+            try:
+                suffix = int(folder.split("_")[1])
+                max_suffix = max(max_suffix, suffix)
+            except (ValueError, IndexError):
+                pass
+    new_folder_name = f"{current_date}_{max_suffix+1:02d}"
+
+# Erstelle den datumsspezifischen Unterordner
+date_folder_path = main_folder_path / new_folder_name
+try:
+    date_folder_path.mkdir(parents=True, exist_ok=True)
+    log_message(f"Datumsordner erstellt: {date_folder_path}", level="info")
+except Exception as e:
+    log_message(f"Fehler beim Erstellen des Datumsordners: {e}", level="error")
+    sys.exit(1)
+
+# Variable für Zielordner initialisieren
+target_folder_path = None
+
+# Wenn ein externer Pfad angegeben ist
+if folder_path and folder_path.lower() != "none":
+    try:
+        # Erstelle den Zielpfad falls nicht vorhanden
+        target_path = Path(folder_path)
+        if not target_path.exists():
+            target_path.mkdir(parents=True, exist_ok=True)
+
+        if folder_name is None or folder_name == "null":
+            # Wenn foldername null ist, verwende den Zielpfad direkt
+            target_folder_path = target_path
+            # Erstelle den Datumsordner direkt im Zielpfad
+            external_date_folder = target_folder_path / new_folder_name
+            
+            # Erstelle den Datumsordner im externen Pfad
+            if not external_date_folder.exists():
+                external_date_folder.mkdir(parents=True, exist_ok=True)
+                
+            # Aktualisiere date_folder_path für spätere Verwendung
+            date_folder_path = external_date_folder
+            log_message(f"Datumsordner direkt im externen Pfad erstellt: {date_folder_path}", level="info")
+        else:
+            # Erstelle den benannten Unterordner im Zielpfad
+            target_folder_path = target_path / folder_name
+            
+            # Wenn der Ordner bereits am Ziel existiert, lösche ihn
+            if target_folder_path.exists():
+                shutil.rmtree(target_folder_path)
+
+            # Verschiebe den Hauptordner in den Zielpfad
+            shutil.move(str(main_folder_path), str(target_path))
+            log_message(f"Ordner verschoben nach: {target_folder_path}", level="info")
+            
+            # Aktualisiere date_folder_path für spätere Verwendung
+            date_folder_path = target_folder_path / new_folder_name
+
+        # Arbeitsverzeichnis aktualisieren
+        work_directory = target_path
+    except Exception as e:
+        log_message(f"Fehler beim Verarbeiten des externen Pfades: {e}", level="error")
+        # Falls ein Fehler auftritt, behalten wir den lokalen Pfad bei
+
+# Liste der auszuführenden Skripte vorbereiten
+scripts_to_run = []
+for module in start_config.get("modules", []):
+    module_name = module.get("name")
+    module_enabled = module.get("enabled", False)
+
+    if not module_name or not module_enabled:
+        continue
+
+    # Hier berücksichtigen wir sowohl Groß- als auch Kleinschreibung
+    # und suchen in allen relevanten Verzeichnissen
+    search_paths = []
+
+    # Prüfe alle Kombinationen aus Verzeichnis und Dateiendung
+    for directory in [modules_directory, init_directory, base_directory, settings_directory, spelling_directory]:
+        # Prüfe die exakte Schreibweise
+        search_paths.append(directory / f"{module_name}.py")
+        # Prüfe die Kleinschreibung
+        search_paths.append(directory / f"{module_name.lower()}.py")
+
+    module_path = None
+    for path in search_paths:
+        if path.exists():
+            module_path = path
+            log_message(f"Modul {module_name} gefunden unter: {module_path}", level="info")
+            break
+
+    if module_path:
+        scripts_to_run.append((module_name, str(module_path)))
+    else:
+        search_locations = "modules, init, Hauptverzeichnis, settings und spelling"
+        log_message(f"Modul {module_name} nicht gefunden. Gesucht in: {search_locations}", level="warning")
+        log_message(f"Suchpfade geprüft: {[str(p) for p in search_paths]}", level="info")
+
+# Skripte ausführen
+for script_name, script_path in scripts_to_run:
+    log_message(f"Starte Modul: {script_name}", level="info")
+
+    try:
+        # Starte das Skript mit dem aktuellen Verzeichnis als Argument
+        subprocess.run(["python", script_path, str(date_folder_path)], check=True)
+        log_message(f"Modul {script_name} erfolgreich beendet", level="info")
+    except subprocess.CalledProcessError as e:
+        log_message(f"Fehler bei der Ausführung von {script_name}: {e}", level="error")
+        sys.exit(1)
+
+log_separator()
+
+# Prüfen, ob Bestätigung per Enter-Taste erforderlich ist
+enter_confirmation = start_config.get("settings", {}).get("enter_confirmation", False)
+if enter_confirmation:
+    input("Drücken Sie die Enter-Taste, um das Programm zu beenden...")
+📝 --- docs\Ablauflogik.md ---
 Gesamt-Ablauflogik ImagesExtract2 (Stand: aktuelle Phase)
 
 ---
@@ -55,24 +457,20 @@ Datei: startskript.py
 
 Aufgabe: Initialisiert das gesamte Programm.
 
+Erstell Datumsordner und legt zielort fest.
+
 Startet die Instanzen:
-
 Logger
-
 Utils
-
 Folders
-
 PrepareInput
-
 Converter
-
 Spelling
 
 ---
 
 2. Logger
-Datei: moduls/logger.py
+Datei: init/logger.py
 
 Aufgabe:
 
@@ -83,7 +481,7 @@ Kontrolliert Ausgaben und Fehlerprotokollierung global.
 ---
 
 3. Utils
-Datei: moduls/utils.py
+Datei: init/utils.py
 
 Aufgabe:
 
@@ -95,10 +493,337 @@ Oder Standardpfad /images/ im Projekt.
 
 Bietet Zugriffsfunktionen für alle anderen Module auf Pfadinformationen.
 
+Lädt alle Einstellungen aus JSON-Dateien
 ---
 
 4. Folders
-Datei: moduls/folders.py
+Datei: modules/folders.py
+
+Aufgabe:
+
+Erstellt die Basisordnerstruktur aus settings/foldes.json.
+
+Verwaltung und Prüfung auf Existenz / Neuanlage.
+
+---
+
+5. PrepareInput
+Datei: spelling/PrepareInput.py
+
+Aufgabe:
+
+Scannt Eingangsordner.
+
+Ermittelt Bildformate (.png, .jpg, .webp, usw.).
+
+Erstellt dynamische Ordner:
+
+01_png/, 01_webp/, etc.
+
+Verschiebt/kopiert Bilder in die entsprechenden 01-Ordner.
+
+---
+
+6. Converter
+Datei: spelling/Converter.py
+
+Aufgabe:
+
+Konvertiert Bilder aus 01_[format]/ in ein definiertes Zielformat (.png).
+
+Speichert konvertierte Bilder in:
+
+neuen Ordner 02_[outputformat] (z.B. 02_png/)
+
+Kopiert die Bilder zusätzlich in alle Ordner, die folders.py angelegt hat (z.B. 03-Enhancement/, 03-TransBack/, usw.).
+
+---
+
+7. Spelling-Steuerung
+Datei: spelling/Spelling.py
+
+Aufgabe:
+
+Liest Konfiguration aus settings/spelling.json.
+
+Steuert, welche Nachbearbeitungs-Skripte auf welchen Ordnern ausgeführt werden.
+
+Führt nur enabled: true Skripte aus.
+
+Beispiele: Enhancement, Extract, SwapColors, CleanUp usw.
+
+
+
+---
+
+ImagesExtract2
+
+Projektbeschreibung
+
+ImagesExtract2 ist ein modulares Bildverarbeitungssystem, das in drei Hauptphasen unterteilt ist:
+
+1. Initialisierung
+
+
+2. Datenvorbereitung
+
+
+3. Spelling-gesteuerte Bildverarbeitung
+
+
+
+Das Ziel des Projektes ist es, eine große Menge an Bilddateien effizient zu verarbeiten, strukturiert abzulegen und flexibel mit verschiedenen Nachbearbeitungsskripten weiterzuverarbeiten.
+
+
+---
+
+Ablaufübersicht
+
+Das Programm wird vollständig über ein zentrales Startskript gestartet und verwaltet seine Arbeit in klar getrennten Modulen.
+
+Hier die grafische Flussdarstellung des gesamten Ablaufs:
+Verstanden.
+Ich gebe dir jetzt die komplette Projekt-Aufbauübersicht nur in ASCII, ohne Unicode-Boxen oder Sonderzeichen.
+Technisch, klar, perfekt für Readme oder Doku.
+
+Hier die ASCII-Version:
+
+
+```plaintext
+---
+
+📂 ImagesExtract2
+├── 📝 .gitignore
+├── 📝 InContent.txt
+├── 📝 README.md
+├── 📂 entrance/
+├── 📝 error_log.txt
+├── 📄 ic_01.png
+├── 📂 image/
+├── 📂 init/
+│   ├── 🐍 folders.py
+│   ├── 🐍 logger.py
+│   └── 🐍 utils.py
+├── 📝 log.txt
+├── 📂 moduls/
+│   ├── 🐍 convert.py
+│   └── 🐍 prepareInput.py
+├── 📂 settings/
+│   ├── 📂 _archive/
+│   │   └── 📄 settings.ini
+│   ├── 📄 foldes.json
+│   ├── 📄 settings.json
+│   ├── 📄 spelling.json
+│   └── 📄 start.json
+├── 📂 spelling/
+│   ├── 🐍 CleanUp.py
+│   ├── 🐍 Collation.py
+│   ├── 🐍 Enhancement.py
+│   ├── 🐍 Extract.py
+│   ├── 🐍 ExtractGray.py
+│   ├── 🐍 Scal.py
+│   ├── 🐍 SwapColors.py
+│   ├── 🐍 TransBack.py
+│   └── 🐍 invert.py
+└── 🐍 startskript.py
+```
+
+---
+
+Erklärungen (Zusammenfassung)
+
+moduls/ → Basisfunktionen (Logger, Verzeichnisse, Utilities)
+
+settings/ → Steuerdateien für Konfiguration
+
+spelling/ → Alle spezifischen Verarbeitungsskripte
+
+image/ → Arbeitsverzeichnis für Bilder (input/output)
+
+startskript.py → Orchestriert den gesamten Ablauf
+
+log.txt / error_log.txt → Alle Protokollausgaben gesammelt
+
+
+
+---
+
+---
+
+```plaintext
+
+START
+ |
+ v
+----------------------------------------
+ PHASE 1: INITIALISIERUNG
+----------------------------------------
+ |
+ v
+[Startskript.py] -- Startet Ablauf
+ |
+ v
+[Logger] -- Initialisiert Log-Ausgabe
+ |
+ v
+[Utils] -- Bestimmt Arbeitsverzeichnis
+ |
+ v
+[Folders] -- Erstellt Basisordnerstruktur
+ |
+ v
+----------------------------------------
+ PHASE 2: DATENVORBEREITUNG
+----------------------------------------
+ |
+ v
+[PrepareInput.py] -- Scannt und sortiert Bilder nach Formaten (01_[format])
+ |
+ v
+[Converter.py] -- Konvertiert Bilder ins Ziel-Format (02_[outputformat])
+             -- Verteilt kopierte Dateien in 03-Ordner
+ |
+ v
+----------------------------------------
+ PHASE 3: SPELLING-STEUERUNG
+----------------------------------------
+ |
+ v
+[Spelling.py] -- Lädt spelling.json
+ |
+ v
+--> Für jede Aktivierte Bearbeitungsstufe:
+     |
+     +--> [Enhancement.py] -- Bildverbesserung
+     |
+     +--> [TransBack.py] -- Hintergrund entfernen
+     |
+     +--> [Extract.py] -- Extrahieren
+     |
+     +--> [ExtractGray.py] -- Graustufenextraktion
+     |
+     +--> [SwapColors.py] -- Farben tauschen
+     |
+     +--> [CleanUp.py] -- Aufräumen
+     |
+     +--> [Scal.py] -- Skalierung
+     |
+     +--> [Collation.py] -- Zusammenführen
+     |
+     +--> [invert.py] -- Farben invertieren
+ |
+ v
+END
+```
+---
+
+Kurz-Erklärung:
+
+Jeder Block [...] = ein Modul
+
+Jeder --> Pfeil = Verzweigung bei aktiver Spelling-Konfiguration
+
+Phasen sind sauber getrennt durch Linien ----------------------------------------
+
+Der Ablauf bleibt linear, außer bei Spelling (hier Mehrfachausführung je Ordner/Skript)
+
+
+---
+
+
+---
+
+##Modulübersicht
+
+---
+
+Phasen im Detail
+
+Phase 1: Initialisierung
+
+Start über startskript.py
+
+Aktivieren des Loggers (logger.py)
+
+Bestimmen des Arbeitsverzeichnisses (utils.py)
+
+Erstellen der Basisordnerstruktur (folders.py)
+
+
+Phase 2: Datenvorbereitung
+
+Scannen der Eingabebilder (PrepareInput.py)
+
+Sortieren nach Bildformaten (01_png, 01_webp, etc.)
+
+Konvertieren der Bilder ins Zielformat (z.B. .png) (Converter.py)
+
+Verteilen der konvertierten Bilder auf die Arbeitsordner (03-Enhancement, 03-TransBack, ...)
+
+
+Phase 3: Spelling-Steuerung
+
+Laden der Konfigurationsdatei spelling.json
+
+Steuern der aktivierten Nachbearbeitungs-Skripte:
+
+Nur Skripte mit "enabled": true werden ausgeführt
+
+Verarbeitung erfolgt Ordnerweise gemäß Konfiguration
+
+
+
+📝 --- docs\doku.md ---
+Gesamt-Ablauflogik ImagesExtract2 (Stand: aktuelle Phase)
+
+---
+
+1. Startskript
+Datei: startskript.py
+
+Aufgabe: Initialisiert das gesamte Programm.
+
+Erstell Datumsordner und legt zielort fest.
+
+Startet die Instanzen:
+Logger
+Utils
+Folders
+PrepareInput
+Converter
+Spelling
+
+---
+
+2. Logger
+Datei: init/logger.py
+
+Aufgabe:
+
+Initialisiert Logging (Konsole und/oder log.txt / error_log.txt).
+
+Kontrolliert Ausgaben und Fehlerprotokollierung global.
+
+---
+
+3. Utils
+Datei: init/utils.py
+
+Aufgabe:
+
+Legt das Arbeitsverzeichnis fest:
+
+Entweder aus start.json
+
+Oder Standardpfad /images/ im Projekt.
+
+Bietet Zugriffsfunktionen für alle anderen Module auf Pfadinformationen.
+
+Lädt alle Einstellungen aus JSON-Dateien
+---
+
+4. Folders
+Datei: modules/folders.py
 
 Aufgabe:
 
@@ -460,6 +1185,37 @@ ImagesExtract2/
 └── README.md
 ```
 ---
+---
+Ordner­erstellungs­logik in der start.json
+```plaintext
+  "folder": {
+    "foldername": "image",
+    "folderpath": null,
+→ Ein Datums­ordner wird im Projekt­verzeichnis unter image angelegt.
+```
+---
+```plaintext
+  "folder": {
+    "foldername": null,
+    "folderpath": null,
+→ Ein Datums­ordner wird im aktuellen Arbeits­verzeichnis erstellt.
+```
+---
+```plaintext
+  "folder": {
+    "foldername": "image",
+    "folderpath": "X:\\Blobbite",
+→ Ein Datums­ordner wird in X:\Blobbite\image angelegt.
+```
+---
+```plaintext
+  "folder": {
+    "foldername": null,
+    "folderpath": "X:\\Blobbite",
+→ Ein Datums­ordner wird direkt in X:\Blobbite erstellt.
+```
+---
+---
 
 Lizenz
 
@@ -498,226 +1254,39 @@ maximale Stabilität und Fehlerkontrolle
 ---
 
 
-📝 --- error_log.txt ---
-2025-05-04 18:54:34,282 - [WARN] Modul Folders.py nicht gefunden. Gesucht in: modules, Hauptverzeichnis, settings und
-spelling
-2025-05-04 18:54:34,430 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
-'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\modules\\Convert.py',
-'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250504']' returned non-zero exit
-status 1.
-2025-05-04 18:57:52,669 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
-'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\modules\\Convert.py',
-'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250504_01']' returned non-zero
-exit status 1.
-
-📝 --- log.txt ---
-2025-05-04 18:57:52,562 - [INFO] ------------------------------------------------------------------
-2025-05-04 18:57:52,562 - [INFO] Working directory:
-2025-05-04 18:57:52,562 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
-2025-05-04 18:57:52,563 - [INFO] ------------------------------------------------------------------
-2025-05-04 18:57:52,563 - [INFO] ------------------------------------------------------------------
-2025-05-04 18:57:52,563 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
-2025-05-04 18:57:52,564 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
-2025-05-04 18:57:52,567 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504_01
-2025-05-04 18:57:52,568 - [INFO] Modul Convert.py gefunden unter:
-X:\Blobbite\P25Images_extract\ImagesExtract2\modules\Convert.py
-2025-05-04 18:57:52,568 - [INFO] Modul Folders.py gefunden unter:
-X:\Blobbite\P25Images_extract\ImagesExtract2\modules\Folders.py
-2025-05-04 18:57:52,568 - [INFO] Starte Modul: Convert.py
-2025-05-04 18:57:52,669 - [ERROR] Fehler bei der Ausführung von Convert.py: Command '['python',
-'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\modules\\Convert.py',
-'X:\\Blobbite\\P25Images_extract\\ImagesExtract2\\image\\250504_01']' returned non-zero
-exit status 1.
-
-🐍 --- startskript.py ---
-#!/usr/bin/env python3
-import os
-import sys
-import json
-import subprocess
-import shutil
-from pathlib import Path
-from datetime import datetime
-
-# Basispfad des Projekts ermitteln (Verzeichnis, in dem das Skript liegt)
-base_directory = Path(__file__).parent.absolute()
-
-# Pfade zu den wichtigen Verzeichnissen - KORRIGIERT
-modules_directory = base_directory / "modules"  # "mdouls" zu "modules" korrigiert
-settings_directory = base_directory / "settings"
-spelling_directory = base_directory / "spelling"
-start_config_path = settings_directory / "start.json"
-
-# Importpfad für Module hinzufügen
-sys.path.append(str(modules_directory))
-sys.path.append(str(spelling_directory))
-
-# Logger importieren
-try:
-    from init.logger import log_message, log_separator, init_logger
-except ImportError:
-    print("Fehler: logger.py konnte nicht importiert werden.")
-    sys.exit(1)
-
-# Initialisiere den Logger
-init_logger(str(base_directory))
-
-log_separator()
-log_message(f"Starte Skript im Verzeichnis: {base_directory}", level="info")
-
-# Einstellungen aus start.json laden
-if not start_config_path.exists():
-    log_message(f"Konfigurationsdatei nicht gefunden: {start_config_path}", level="error")
-    sys.exit(1)
-
-try:
-    with open(start_config_path, 'r', encoding='utf-8') as f:
-        start_config = json.load(f)
-except Exception as e:
-    log_message(f"Fehler beim Laden der Konfiguration: {e}", level="error")
-    sys.exit(1)
-
-# Ordnerkonfiguration verarbeiten
-folder_config = start_config.get("folder", {})
-folder_name = folder_config.get("foldername", "image")
-folder_path = folder_config.get("folderpath")
-entrance_path = folder_config.get("entrancepath")
-
-# Eingangsverzeichnis anzeigen wenn gesetzt
-if entrance_path:
-    log_message(f"Eingangsverzeichnis (entrancepath): {entrance_path}", level="info")
-else:
-    log_message("Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.", level="info")
-
-# Erstelle den Zielordner basierend auf der Konfiguration
-work_directory = base_directory
-
-# Aktuelles Datum im Format JJMMTT
-current_date = datetime.now().strftime("%y%m%d")
-
-# Erstelle den Hauptordner
-main_folder_path = work_directory / folder_name
-if not main_folder_path.exists():
-    try:
-        main_folder_path.mkdir(parents=True)
-        log_message(f"Hauptordner erstellt: {main_folder_path}", level="info")
-    except Exception as e:
-        log_message(f"Fehler beim Erstellen des Hauptordners: {e}", level="error")
-        sys.exit(1)
-
-# Bestimme, ob bereits Datumsordner existieren
-existing_folders = []
-try:
-    for folder in os.listdir(main_folder_path):
-        folder_path_obj = main_folder_path / folder
-        if folder_path_obj.is_dir() and folder.startswith(current_date):
-            existing_folders.append(folder)
-except Exception as e:
-    log_message(f"Fehler beim Auflisten der Ordner: {e}", level="error")
-
-# Bestimme den neuen Ordnernamen
-if not existing_folders:
-    new_folder_name = current_date
-else:
-    # Finde die höchste Nummer und erhöhe sie um 1
-    max_suffix = 0
-    for folder in existing_folders:
-        if "_" in folder:
-            try:
-                suffix = int(folder.split("_")[1])
-                max_suffix = max(max_suffix, suffix)
-            except (ValueError, IndexError):
-                pass
-    new_folder_name = f"{current_date}_{max_suffix+1:02d}"
-
-# Erstelle den datumsspezifischen Unterordner
-date_folder_path = main_folder_path / new_folder_name
-try:
-    date_folder_path.mkdir(parents=True, exist_ok=True)
-    log_message(f"Datumsordner erstellt: {date_folder_path}", level="info")
-except Exception as e:
-    log_message(f"Fehler beim Erstellen des Datumsordners: {e}", level="error")
-    sys.exit(1)
-
-# Wenn ein externer Pfad angegeben ist, verschiebe den Ordner dorthin
-if folder_path and folder_path.lower() != "none":
-    try:
-        # Erstelle den Zielpfad falls nicht vorhanden
-        target_path = Path(folder_path)
-        if not target_path.exists():
-            target_path.mkdir(parents=True, exist_ok=True)
-
-        # Zielpfad für den verschobenen Ordner
-        target_folder_path = target_path / folder_name
-
-        # Wenn der Ordner bereits am Ziel existiert, lösche ihn
-        if target_folder_path.exists():
-            shutil.rmtree(target_folder_path)
-
-        # Verschiebe den Ordner
-        shutil.move(str(main_folder_path), str(target_path))
-        log_message(f"Ordner verschoben nach: {target_folder_path}", level="info")
-
-        # Arbeitsverzeichnis aktualisieren
-        work_directory = target_path
-    except Exception as e:
-        log_message(f"Fehler beim Verschieben des Ordners: {e}", level="error")
-        # Fahre mit dem lokalen Pfad fort
-
-# Liste der auszuführenden Skripte vorbereiten
-scripts_to_run = []
-for module in start_config.get("modules", []):
-    module_name = module.get("name")
-    module_enabled = module.get("enabled", False)
-
-    if not module_name or not module_enabled:
-        continue
-
-    # Prüfe in mehreren Verzeichnissen nach dem Modul - KORRIGIERT
-    search_paths = [
-        modules_directory / module_name,  # modules-Verzeichnis (korrigiert)
-        base_directory / module_name,     # Hauptverzeichnis
-        settings_directory / module_name,  # settings-Verzeichnis
-        spelling_directory / module_name,  # spelling-Verzeichnis
-    ]
-
-    module_path = None
-    for path in search_paths:
-        if path.exists():
-            module_path = path
-            log_message(f"Modul {module_name} gefunden unter: {module_path}", level="info")
-            break
-
-    if module_path:
-        scripts_to_run.append((module_name, str(module_path)))
-    else:
-        search_locations = "modules, Hauptverzeichnis, settings und spelling" # Korrigiert
-        log_message(f"Modul {module_name} nicht gefunden. Gesucht in: {search_locations}", level="warning")
-        log_message(f"Suchpfade: {', '.join(str(p) for p in search_paths)}", level="info")
-
-# Skripte ausführen
-for script_name, script_path in scripts_to_run:
-    log_message(f"Starte Modul: {script_name}", level="info")
-
-    try:
-        # Starte das Skript mit dem aktuellen Verzeichnis als Argument
-        # Wenn ein neues Arbeitsverzeichnis definiert wurde, übergebe dieses
-        if folder_path and folder_path.lower() != "none":
-            subprocess.run(["python", script_path, str(target_folder_path / new_folder_name)], check=True)
-        else:
-            subprocess.run(["python", script_path, str(date_folder_path)], check=True)
-        log_message(f"Modul {script_name} erfolgreich beendet", level="info")
-    except subprocess.CalledProcessError as e:
-        log_message(f"Fehler bei der Ausführung von {script_name}: {e}", level="error")
-        sys.exit(1)
-
-log_separator()
-
-# Prüfen, ob Bestätigung per Enter-Taste erforderlich ist
-enter_confirmation = start_config.get("settings", {}).get("enter_confirmation", False)
-if enter_confirmation:
-    input("Drücken Sie die Enter-Taste, um das Programm zu beenden...")
-
+📝 --- docs\settings.md ---
+---
+---
+Ordner­erstellungs­logik in der start.json
+```plaintext
+  "folder": {
+    "foldername": "image",
+    "folderpath": null,
+→ Ein Datums­ordner wird im Projekt­verzeichnis unter image angelegt.
+```
+---
+```plaintext
+  "folder": {
+    "foldername": null,
+    "folderpath": null,
+→ Ein Datums­ordner wird im aktuellen Arbeits­verzeichnis erstellt.
+```
+---
+```plaintext
+  "folder": {
+    "foldername": "image",
+    "folderpath": "X:\\Blobbite",
+→ Ein Datums­ordner wird in X:\Blobbite\image angelegt.
+```
+---
+```plaintext
+  "folder": {
+    "foldername": null,
+    "folderpath": "X:\\Blobbite",
+→ Ein Datums­ordner wird direkt in X:\Blobbite erstellt.
+```
+---
+---
 🐍 --- init\logger.py ---
 import logging
 import os
@@ -997,6 +1566,9 @@ def get_folder_config():
 def get_folders_mapping():
     """Lädt die foldes.json-Datei und gibt die Ordnerzuordnung zurück."""
     folders_config = load_json_config("foldes.json")
+    # Entfernen des _disabled-Feldes, wenn es existiert
+    if "_disabled" in folders_config:
+        folders_config.pop("_disabled")
     return folders_config
 
 def get_spelling_config():
@@ -1103,8 +1675,10 @@ from pathlib import Path
 # Pfad zum modules-Verzeichnis hinzufügen
 script_directory = os.path.dirname(os.path.abspath(__file__))
 base_directory = os.path.dirname(script_directory)
-modules_directory = os.path.join(base_directory, "modules")  # Korrigiert
+modules_directory = os.path.join(base_directory, "modules")
+init_directory = os.path.join(base_directory, "init")  # DIESE ZEILE HINZUFÜGEN
 sys.path.append(modules_directory)
+sys.path.append(init_directory)  # DIESE ZEILE HINZUFÜGEN
 
 # Module importieren
 try:
@@ -1245,8 +1819,10 @@ else:
 # Füge das Modulverzeichnis zum Pfad hinzu
 script_dir = os.path.dirname(os.path.abspath(__file__))
 base_dir = os.path.dirname(script_dir)  # Übergeordnetes Verzeichnis (Projektverzeichnis)
-modules_dir = script_dir  # Wir sind bereits im mdouls-Verzeichnis
+modules_dir = script_dir  # Wir sind bereits im modules-Verzeichnis
+init_dir = os.path.join(base_dir, "init")  # DIESE ZEILE HINZUFÜGEN
 sys.path.append(modules_dir)
+sys.path.append(init_dir)  # DIESE ZEILE HINZUFÜGEN
 
 try:
     from logger import (
@@ -3246,4 +3822,482 @@ if __name__ == "__main__":
         print("Aufruf: python Invert.py <Datums- oder Zielordner>")
         sys.exit(1)
     run(Path(sys.argv[1]))
+
+📝 --- _log\error_log.txt ---
+
+📝 --- _log\log.txt ---
+2025-05-04 20:08:37,392 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,392 - [INFO] Working directory:
+2025-05-04 20:08:37,392 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:08:37,392 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,392 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,393 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:08:37,393 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:08:37,396 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504_05
+2025-05-04 20:08:37,396 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:08:37,397 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:08:37,397 - [INFO] Starte Modul: convert
+2025-05-04 20:08:37,474 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,474 - [INFO] Working directory:
+2025-05-04 20:08:37,474 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504_05
+2025-05-04 20:08:37,474 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,474 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:08:37,475 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:08:37,475 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:08:37,475 - [INFO] Ausgabeformat: png
+2025-05-04 20:08:37,475 - [INFO] Keine konvertierbaren Dateien im Verzeichnis
+'X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504_05' gefunden. Skript wird
+beendet.
+2025-05-04 20:08:37,484 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:08:37,484 - [INFO] Starte Modul: folders
+2025-05-04 20:08:37,536 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,536 - [INFO] Working directory:
+2025-05-04 20:08:37,536 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504_05
+2025-05-04 20:08:37,536 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,537 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:08:37,537 - [INFO] Ausgabeformat: png
+2025-05-04 20:08:37,537 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:08:37,537 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,538 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:08:37,538 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:08:37,540 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:08:37,541 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:08:37,542 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:08:37,543 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:08:37,544 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:08:37,544 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:08:37,545 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:08:37,545 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:08:37,546 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:08:37,547 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:08:37,547 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,547 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:08:37,553 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:08:37,553 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:13,714 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:13,715 - [INFO] Working directory:
+2025-05-04 20:09:13,715 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:09:13,715 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:13,715 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:13,715 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:09:13,715 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:09:16,338 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:16,338 - [INFO] Working directory:
+2025-05-04 20:09:16,338 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:09:16,338 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:16,338 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:16,338 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:09:16,339 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:09:28,539 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:28,539 - [INFO] Working directory:
+2025-05-04 20:09:28,539 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:09:28,540 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:28,540 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:28,540 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:09:28,540 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:12:25,788 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,788 - [INFO] Working directory:
+2025-05-04 20:12:25,788 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:12:25,788 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,789 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,789 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:12:25,789 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:12:25,792 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504
+2025-05-04 20:12:25,792 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:12:25,792 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:12:25,792 - [INFO] Starte Modul: convert
+2025-05-04 20:12:25,870 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,871 - [INFO] Working directory:
+2025-05-04 20:12:25,871 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504
+2025-05-04 20:12:25,871 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,871 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:12:25,871 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:12:25,872 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:12:25,872 - [INFO] Ausgabeformat: png
+2025-05-04 20:12:25,872 - [INFO] Keine konvertierbaren Dateien im Verzeichnis
+'X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504' gefunden. Skript wird beendet.
+2025-05-04 20:12:25,880 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:12:25,880 - [INFO] Starte Modul: folders
+2025-05-04 20:12:25,931 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,931 - [INFO] Working directory:
+2025-05-04 20:12:25,932 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504
+2025-05-04 20:12:25,932 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,932 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:12:25,932 - [INFO] Ausgabeformat: png
+2025-05-04 20:12:25,933 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:12:25,933 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,933 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:12:25,934 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:12:25,935 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:12:25,936 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:12:25,937 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:12:25,938 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:12:25,939 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:12:25,939 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:12:25,939 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:12:25,940 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:12:25,941 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:12:25,943 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:12:25,943 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,943 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:12:25,948 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:12:25,948 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,109 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,109 - [INFO] Working directory:
+2025-05-04 20:12:45,109 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:12:45,109 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,110 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,110 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:12:45,110 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:12:45,110 - [INFO] Verwende Basisverzeichnis direkt: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:12:45,114 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\250504
+2025-05-04 20:12:45,114 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:12:45,114 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:12:45,114 - [INFO] Starte Modul: convert
+2025-05-04 20:12:45,192 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,192 - [INFO] Working directory:
+2025-05-04 20:12:45,192 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\250504
+2025-05-04 20:12:45,192 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,192 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:12:45,193 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:12:45,193 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:12:45,193 - [INFO] Ausgabeformat: png
+2025-05-04 20:12:45,193 - [INFO] Keine konvertierbaren Dateien im Verzeichnis
+'X:\Blobbite\P25Images_extract\ImagesExtract2\250504' gefunden. Skript wird beendet.
+2025-05-04 20:12:45,201 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:12:45,201 - [INFO] Starte Modul: folders
+2025-05-04 20:12:45,253 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,253 - [INFO] Working directory:
+2025-05-04 20:12:45,253 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\250504
+2025-05-04 20:12:45,253 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,254 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:12:45,254 - [INFO] Ausgabeformat: png
+2025-05-04 20:12:45,254 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:12:45,254 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,255 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:12:45,255 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:12:45,257 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:12:45,258 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:12:45,258 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:12:45,259 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:12:45,260 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:12:45,261 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:12:45,261 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:12:45,262 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:12:45,262 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:12:45,263 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:12:45,263 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,264 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:12:45,269 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:12:45,270 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,568 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,569 - [INFO] Working directory:
+2025-05-04 20:14:18,569 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:14:18,569 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,569 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,569 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:14:18,570 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:14:18,574 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504_01
+2025-05-04 20:14:18,594 - [INFO] Ordner verschoben nach: X:\Blobbite\image
+2025-05-04 20:14:18,594 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:14:18,595 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:14:18,595 - [INFO] Starte Modul: convert
+2025-05-04 20:14:18,675 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,675 - [INFO] Working directory:
+2025-05-04 20:14:18,675 - [INFO] X:\Blobbite\image\250504_01
+2025-05-04 20:14:18,675 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,675 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:14:18,676 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:14:18,676 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:14:18,676 - [INFO] Ausgabeformat: png
+2025-05-04 20:14:18,676 - [INFO] Keine konvertierbaren Dateien im Verzeichnis 'X:\Blobbite\image\250504_01' gefunden.
+Skript wird beendet.
+2025-05-04 20:14:18,684 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:14:18,685 - [INFO] Starte Modul: folders
+2025-05-04 20:14:18,735 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,736 - [INFO] Working directory:
+2025-05-04 20:14:18,736 - [INFO] X:\Blobbite\image\250504_01
+2025-05-04 20:14:18,736 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,736 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:14:18,737 - [INFO] Ausgabeformat: png
+2025-05-04 20:14:18,737 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:14:18,737 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,737 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:14:18,737 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:14:18,738 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:14:18,739 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:14:18,739 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:14:18,740 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:14:18,741 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:14:18,742 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:14:18,742 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:14:18,743 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:14:18,744 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:14:18,744 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:14:18,744 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,744 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:14:18,750 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:14:18,750 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:06,958 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:06,958 - [INFO] Working directory:
+2025-05-04 20:17:06,958 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:06,958 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:06,959 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:06,959 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:06,959 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:17:06,959 - [INFO] Verwende Basisverzeichnis direkt: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:06,963 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\250504
+2025-05-04 20:17:06,964 - [INFO] Datumsordner direkt im externen Pfad erstellt: X:\Blobbite\250504
+2025-05-04 20:17:06,964 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:17:06,964 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:17:06,964 - [INFO] Starte Modul: convert
+2025-05-04 20:17:07,043 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:07,043 - [INFO] Working directory:
+2025-05-04 20:17:07,043 - [INFO] X:\Blobbite\250504
+2025-05-04 20:17:07,044 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:07,044 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:17:07,044 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:07,044 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:07,045 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:07,045 - [INFO] Keine konvertierbaren Dateien im Verzeichnis 'X:\Blobbite\250504' gefunden. Skript wird
+beendet.
+2025-05-04 20:17:07,053 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:17:07,053 - [INFO] Starte Modul: folders
+2025-05-04 20:17:07,105 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:07,105 - [INFO] Working directory:
+2025-05-04 20:17:07,105 - [INFO] X:\Blobbite\250504
+2025-05-04 20:17:07,106 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:07,106 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:07,106 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:07,106 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:17:07,106 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:07,107 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:17:07,107 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:17:07,109 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:17:07,109 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:17:07,110 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:17:07,111 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:17:07,112 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:17:07,113 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:17:07,113 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:17:07,115 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:17:07,116 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:17:07,116 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:17:07,116 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:07,116 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:17:07,121 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:17:07,122 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,080 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,080 - [INFO] Working directory:
+2025-05-04 20:17:24,080 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:24,081 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,081 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,081 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:24,081 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:17:24,082 - [INFO] Verwende Basisverzeichnis direkt: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:24,085 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\250504_01
+2025-05-04 20:17:24,086 - [INFO] Datumsordner direkt im externen Pfad erstellt: X:\Blobbite\250504_01
+2025-05-04 20:17:24,086 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:17:24,086 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:17:24,087 - [INFO] Starte Modul: convert
+2025-05-04 20:17:24,166 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,166 - [INFO] Working directory:
+2025-05-04 20:17:24,166 - [INFO] X:\Blobbite\250504_01
+2025-05-04 20:17:24,166 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,167 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:17:24,167 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:24,167 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:24,167 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:24,168 - [INFO] Keine konvertierbaren Dateien im Verzeichnis 'X:\Blobbite\250504_01' gefunden. Skript wird
+beendet.
+2025-05-04 20:17:24,176 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:17:24,176 - [INFO] Starte Modul: folders
+2025-05-04 20:17:24,230 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,230 - [INFO] Working directory:
+2025-05-04 20:17:24,230 - [INFO] X:\Blobbite\250504_01
+2025-05-04 20:17:24,230 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,231 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:24,231 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:24,231 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:17:24,231 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,232 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:17:24,232 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:17:24,233 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:17:24,233 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:17:24,234 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:17:24,235 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:17:24,235 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:17:24,236 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:17:24,237 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:17:24,238 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:17:24,239 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:17:24,239 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:17:24,239 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,240 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:17:24,245 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:17:24,245 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,472 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,472 - [INFO] Working directory:
+2025-05-04 20:17:34,472 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:34,472 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,472 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,472 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:34,473 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:17:34,473 - [INFO] Verwende Basisverzeichnis direkt: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:34,477 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\250504_02
+2025-05-04 20:17:34,477 - [INFO] Datumsordner direkt im externen Pfad erstellt: X:\Blobbite\250504_02
+2025-05-04 20:17:34,477 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:17:34,478 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:17:34,478 - [INFO] Starte Modul: convert
+2025-05-04 20:17:34,556 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,556 - [INFO] Working directory:
+2025-05-04 20:17:34,556 - [INFO] X:\Blobbite\250504_02
+2025-05-04 20:17:34,556 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,557 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:17:34,557 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:34,557 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:34,557 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:34,558 - [INFO] Keine konvertierbaren Dateien im Verzeichnis 'X:\Blobbite\250504_02' gefunden. Skript wird
+beendet.
+2025-05-04 20:17:34,565 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:17:34,565 - [INFO] Starte Modul: folders
+2025-05-04 20:17:34,618 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,618 - [INFO] Working directory:
+2025-05-04 20:17:34,619 - [INFO] X:\Blobbite\250504_02
+2025-05-04 20:17:34,619 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,619 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:34,619 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:34,620 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:17:34,620 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,620 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:17:34,620 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:17:34,623 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:17:34,624 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:17:34,624 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:17:34,625 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:17:34,626 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:17:34,627 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:17:34,628 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:17:34,629 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:17:34,630 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:17:34,631 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:17:34,631 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,631 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:17:34,636 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:17:34,636 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,335 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,336 - [INFO] Working directory:
+2025-05-04 20:17:41,336 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:41,336 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,336 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,336 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:41,336 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:17:41,337 - [INFO] Verwende Basisverzeichnis direkt: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:41,340 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\250504_03
+2025-05-04 20:17:41,340 - [INFO] Datumsordner direkt im externen Pfad erstellt: X:\Blobbite\250504_03
+2025-05-04 20:17:41,340 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:17:41,341 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:17:41,341 - [INFO] Starte Modul: convert
+2025-05-04 20:17:41,420 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,420 - [INFO] Working directory:
+2025-05-04 20:17:41,421 - [INFO] X:\Blobbite\250504_03
+2025-05-04 20:17:41,421 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,421 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:17:41,421 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:41,422 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:41,422 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:41,422 - [INFO] Keine konvertierbaren Dateien im Verzeichnis 'X:\Blobbite\250504_03' gefunden. Skript wird
+beendet.
+2025-05-04 20:17:41,429 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:17:41,429 - [INFO] Starte Modul: folders
+2025-05-04 20:17:41,485 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,485 - [INFO] Working directory:
+2025-05-04 20:17:41,485 - [INFO] X:\Blobbite\250504_03
+2025-05-04 20:17:41,486 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,486 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:41,486 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:41,487 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:17:41,487 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,487 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:17:41,487 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:17:41,488 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:17:41,489 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:17:41,490 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:17:41,491 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:17:41,492 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:17:41,492 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:17:41,493 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:17:41,494 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:17:41,495 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:17:41,496 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:17:41,496 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,496 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:17:41,502 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:17:41,502 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,821 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,822 - [INFO] Working directory:
+2025-05-04 20:23:17,822 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:23:17,822 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,822 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,822 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:23:17,822 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:23:17,825 - [INFO] Hauptordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\image
+2025-05-04 20:23:17,827 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504
+2025-05-04 20:23:17,827 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:23:17,827 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:23:17,827 - [INFO] Starte Modul: convert
+2025-05-04 20:23:17,907 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,907 - [INFO] Working directory:
+2025-05-04 20:23:17,907 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504
+2025-05-04 20:23:17,908 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,908 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:23:17,908 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:23:17,908 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:23:17,908 - [INFO] Ausgabeformat: png
+2025-05-04 20:23:17,909 - [INFO] Keine konvertierbaren Dateien im Verzeichnis
+'X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504' gefunden. Skript wird beendet.
+2025-05-04 20:23:17,916 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:23:17,916 - [INFO] Starte Modul: folders
+2025-05-04 20:23:17,967 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,967 - [INFO] Working directory:
+2025-05-04 20:23:17,967 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504
+2025-05-04 20:23:17,967 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,968 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:23:17,968 - [INFO] Ausgabeformat: png
+2025-05-04 20:23:17,968 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:23:17,968 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,969 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:23:17,969 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:23:17,971 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:23:17,971 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:23:17,971 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:23:17,973 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:23:17,973 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:23:17,974 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:23:17,975 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:23:17,976 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:23:17,976 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:23:17,977 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:23:17,977 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,977 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:23:17,983 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:23:17,983 - [INFO] ------------------------------------------------------------------
 
