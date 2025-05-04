@@ -7,24 +7,20 @@ Datei: startskript.py
 
 Aufgabe: Initialisiert das gesamte Programm.
 
+Erstell Datumsordner und legt zielort fest.
+
 Startet die Instanzen:
-
 Logger
-
 Utils
-
 Folders
-
 PrepareInput
-
 Converter
-
 Spelling
 
 ---
 
 2. Logger
-Datei: moduls/logger.py
+Datei: init/logger.py
 
 Aufgabe:
 
@@ -35,7 +31,7 @@ Kontrolliert Ausgaben und Fehlerprotokollierung global.
 ---
 
 3. Utils
-Datei: moduls/utils.py
+Datei: init/utils.py
 
 Aufgabe:
 
@@ -47,10 +43,11 @@ Oder Standardpfad /images/ im Projekt.
 
 Bietet Zugriffsfunktionen für alle anderen Module auf Pfadinformationen.
 
+Lädt alle Einstellungen aus JSON-Dateien
 ---
 
 4. Folders
-Datei: moduls/folders.py
+Datei: modules/folders.py
 
 Aufgabe:
 
@@ -145,48 +142,40 @@ Hier die ASCII-Version:
 ```plaintext
 ---
 
-ImagesExtract2/
-|
-|-- moduls/
-|    |-- folders.py         # Erstellt und verwaltet die Basis-Ordnerstruktur
-|    |-- logger.py          # Globale Fehler- und Statusprotokollierung
-|    |-- utils.py           # Arbeitsverzeichnis und Pfadmanagement
-|
-|-- settings/
-|    |-- start.json         # Konfiguration: Arbeitsverzeichnis, allgemeine Optionen
-|    |-- foldes.json        # Konfiguration: Ordnerstruktur
-|    |-- spelling.json      # Konfiguration: Steuerung der Nachbearbeitungsskripte
-|
-|-- spelling/
-|    |-- PrepareInput.py    # Sortiert Eingabebilder nach Formaten (01_png, 01_webp, etc.)
-|    |-- Converter.py       # Konvertiert Bilder ins Zielformat und verteilt sie
-|    |-- Spelling.py        # Steuert Ausführung der Bearbeitungsskripte auf bestimmten Ordnern
-|    |-- Enhancement.py     # Modul für Bildverbesserung
-|    |-- Extract.py         # Modul für Objektextraktion
-|    |-- ExtractGray.py     # Modul für Graustufenextraktion
-|    |-- TransBack.py       # Modul für Hintergrundtransparenz
-|    |-- SwapColors.py      # Modul für Farbtausch
-|    |-- CleanUp.py         # Modul für Bildaufräumarbeiten
-|    |-- Scal.py            # Modul für Bildskalierung
-|    |-- Collation.py       # Modul für Zusammenfassung der Ergebnisse
-|    |-- invert.py          # Modul für Farbinvertierung
-|
-|-- startskript.py          # Hauptstartpunkt des Programms, steuert Initialisierung und Ablauf
-|-- README.md               # Projektbeschreibung und Dokumentation
-|-- requirements.txt        # (optional) Python-Abhängigkeiten für Installation
-|
-|-- log.txt                 # Laufende Protokollierung
-|-- error_log.txt           # Fehlerprotokollierung
-|-- InContent.txt           # (optional) weitere Metadaten oder Zwischenstände
-|-- ic_01.png               # Beispielbild oder Testbild
-|
-|-- image/
-     |-- [dynamisch generierte Tagesordner]
-          |-- 01_[format]/        # Sortierte Eingangsdateien
-          |-- 02_[outputformat]/  # Konvertierte Ausgabedateien
-          |-- 03-Enhancement/     # Vorbereitung für Enhancement
-          |-- 03-TransBack/       # Vorbereitung für Transparenz
-          |-- ...                 # Weitere Verarbeitungsordner
+📂 ImagesExtract2
+├── 📝 .gitignore
+├── 📝 InContent.txt
+├── 📝 README.md
+├── 📂 entrance/
+├── 📝 error_log.txt
+├── 📄 ic_01.png
+├── 📂 image/
+├── 📂 init/
+│   ├── 🐍 folders.py
+│   ├── 🐍 logger.py
+│   └── 🐍 utils.py
+├── 📝 log.txt
+├── 📂 moduls/
+│   ├── 🐍 convert.py
+│   └── 🐍 prepareInput.py
+├── 📂 settings/
+│   ├── 📂 _archive/
+│   │   └── 📄 settings.ini
+│   ├── 📄 foldes.json
+│   ├── 📄 settings.json
+│   ├── 📄 spelling.json
+│   └── 📄 start.json
+├── 📂 spelling/
+│   ├── 🐍 CleanUp.py
+│   ├── 🐍 Collation.py
+│   ├── 🐍 Enhancement.py
+│   ├── 🐍 Extract.py
+│   ├── 🐍 ExtractGray.py
+│   ├── 🐍 Scal.py
+│   ├── 🐍 SwapColors.py
+│   ├── 🐍 TransBack.py
+│   └── 🐍 invert.py
+└── 🐍 startskript.py
 ```
 
 ---
@@ -419,6 +408,37 @@ ImagesExtract2/
 ├── startskript.py
 └── README.md
 ```
+---
+---
+Ordner­erstellungs­logik in der start.json
+```plaintext
+  "folder": {
+    "foldername": "image",
+    "folderpath": null,
+→ Ein Datums­ordner wird im Projekt­verzeichnis unter image angelegt.
+```
+---
+```plaintext
+  "folder": {
+    "foldername": null,
+    "folderpath": null,
+→ Ein Datums­ordner wird im aktuellen Arbeits­verzeichnis erstellt.
+```
+---
+```plaintext
+  "folder": {
+    "foldername": "image",
+    "folderpath": "X:\\Blobbite",
+→ Ein Datums­ordner wird in X:\Blobbite\image angelegt.
+```
+---
+```plaintext
+  "folder": {
+    "foldername": null,
+    "folderpath": "X:\\Blobbite",
+→ Ein Datums­ordner wird direkt in X:\Blobbite erstellt.
+```
+---
 ---
 
 Lizenz

@@ -1,0 +1,474 @@
+2025-05-04 20:08:37,392 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,392 - [INFO] Working directory:
+2025-05-04 20:08:37,392 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:08:37,392 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,392 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,393 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:08:37,393 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:08:37,396 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504_05
+2025-05-04 20:08:37,396 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:08:37,397 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:08:37,397 - [INFO] Starte Modul: convert
+2025-05-04 20:08:37,474 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,474 - [INFO] Working directory:
+2025-05-04 20:08:37,474 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504_05
+2025-05-04 20:08:37,474 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,474 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:08:37,475 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:08:37,475 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:08:37,475 - [INFO] Ausgabeformat: png
+2025-05-04 20:08:37,475 - [INFO] Keine konvertierbaren Dateien im Verzeichnis
+'X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504_05' gefunden. Skript wird
+beendet.
+2025-05-04 20:08:37,484 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:08:37,484 - [INFO] Starte Modul: folders
+2025-05-04 20:08:37,536 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,536 - [INFO] Working directory:
+2025-05-04 20:08:37,536 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504_05
+2025-05-04 20:08:37,536 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,537 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:08:37,537 - [INFO] Ausgabeformat: png
+2025-05-04 20:08:37,537 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:08:37,537 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,538 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:08:37,538 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:08:37,540 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:08:37,541 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:08:37,542 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:08:37,543 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:08:37,544 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:08:37,544 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:08:37,545 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:08:37,545 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:08:37,546 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:08:37,547 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:08:37,547 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:08:37,547 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:08:37,553 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:08:37,553 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:13,714 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:13,715 - [INFO] Working directory:
+2025-05-04 20:09:13,715 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:09:13,715 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:13,715 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:13,715 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:09:13,715 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:09:16,338 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:16,338 - [INFO] Working directory:
+2025-05-04 20:09:16,338 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:09:16,338 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:16,338 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:16,338 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:09:16,339 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:09:28,539 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:28,539 - [INFO] Working directory:
+2025-05-04 20:09:28,539 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:09:28,540 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:28,540 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:09:28,540 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:09:28,540 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:12:25,788 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,788 - [INFO] Working directory:
+2025-05-04 20:12:25,788 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:12:25,788 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,789 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,789 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:12:25,789 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:12:25,792 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504
+2025-05-04 20:12:25,792 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:12:25,792 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:12:25,792 - [INFO] Starte Modul: convert
+2025-05-04 20:12:25,870 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,871 - [INFO] Working directory:
+2025-05-04 20:12:25,871 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504
+2025-05-04 20:12:25,871 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,871 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:12:25,871 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:12:25,872 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:12:25,872 - [INFO] Ausgabeformat: png
+2025-05-04 20:12:25,872 - [INFO] Keine konvertierbaren Dateien im Verzeichnis
+'X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504' gefunden. Skript wird beendet.
+2025-05-04 20:12:25,880 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:12:25,880 - [INFO] Starte Modul: folders
+2025-05-04 20:12:25,931 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,931 - [INFO] Working directory:
+2025-05-04 20:12:25,932 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504
+2025-05-04 20:12:25,932 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,932 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:12:25,932 - [INFO] Ausgabeformat: png
+2025-05-04 20:12:25,933 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:12:25,933 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,933 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:12:25,934 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:12:25,935 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:12:25,936 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:12:25,937 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:12:25,938 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:12:25,939 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:12:25,939 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:12:25,939 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:12:25,940 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:12:25,941 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:12:25,943 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:12:25,943 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:25,943 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:12:25,948 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:12:25,948 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,109 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,109 - [INFO] Working directory:
+2025-05-04 20:12:45,109 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:12:45,109 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,110 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,110 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:12:45,110 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:12:45,110 - [INFO] Verwende Basisverzeichnis direkt: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:12:45,114 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\250504
+2025-05-04 20:12:45,114 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:12:45,114 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:12:45,114 - [INFO] Starte Modul: convert
+2025-05-04 20:12:45,192 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,192 - [INFO] Working directory:
+2025-05-04 20:12:45,192 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\250504
+2025-05-04 20:12:45,192 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,192 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:12:45,193 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:12:45,193 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:12:45,193 - [INFO] Ausgabeformat: png
+2025-05-04 20:12:45,193 - [INFO] Keine konvertierbaren Dateien im Verzeichnis
+'X:\Blobbite\P25Images_extract\ImagesExtract2\250504' gefunden. Skript wird beendet.
+2025-05-04 20:12:45,201 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:12:45,201 - [INFO] Starte Modul: folders
+2025-05-04 20:12:45,253 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,253 - [INFO] Working directory:
+2025-05-04 20:12:45,253 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\250504
+2025-05-04 20:12:45,253 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,254 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:12:45,254 - [INFO] Ausgabeformat: png
+2025-05-04 20:12:45,254 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:12:45,254 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,255 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:12:45,255 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:12:45,257 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:12:45,258 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:12:45,258 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:12:45,259 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:12:45,260 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:12:45,261 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:12:45,261 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:12:45,262 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:12:45,262 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:12:45,263 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:12:45,263 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:12:45,264 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:12:45,269 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:12:45,270 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,568 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,569 - [INFO] Working directory:
+2025-05-04 20:14:18,569 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:14:18,569 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,569 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,569 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:14:18,570 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:14:18,574 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504_01
+2025-05-04 20:14:18,594 - [INFO] Ordner verschoben nach: X:\Blobbite\image
+2025-05-04 20:14:18,594 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:14:18,595 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:14:18,595 - [INFO] Starte Modul: convert
+2025-05-04 20:14:18,675 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,675 - [INFO] Working directory:
+2025-05-04 20:14:18,675 - [INFO] X:\Blobbite\image\250504_01
+2025-05-04 20:14:18,675 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,675 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:14:18,676 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:14:18,676 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:14:18,676 - [INFO] Ausgabeformat: png
+2025-05-04 20:14:18,676 - [INFO] Keine konvertierbaren Dateien im Verzeichnis 'X:\Blobbite\image\250504_01' gefunden.
+Skript wird beendet.
+2025-05-04 20:14:18,684 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:14:18,685 - [INFO] Starte Modul: folders
+2025-05-04 20:14:18,735 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,736 - [INFO] Working directory:
+2025-05-04 20:14:18,736 - [INFO] X:\Blobbite\image\250504_01
+2025-05-04 20:14:18,736 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,736 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:14:18,737 - [INFO] Ausgabeformat: png
+2025-05-04 20:14:18,737 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:14:18,737 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,737 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:14:18,737 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:14:18,738 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:14:18,739 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:14:18,739 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:14:18,740 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:14:18,741 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:14:18,742 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:14:18,742 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:14:18,743 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:14:18,744 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:14:18,744 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:14:18,744 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:14:18,744 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:14:18,750 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:14:18,750 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:06,958 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:06,958 - [INFO] Working directory:
+2025-05-04 20:17:06,958 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:06,958 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:06,959 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:06,959 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:06,959 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:17:06,959 - [INFO] Verwende Basisverzeichnis direkt: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:06,963 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\250504
+2025-05-04 20:17:06,964 - [INFO] Datumsordner direkt im externen Pfad erstellt: X:\Blobbite\250504
+2025-05-04 20:17:06,964 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:17:06,964 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:17:06,964 - [INFO] Starte Modul: convert
+2025-05-04 20:17:07,043 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:07,043 - [INFO] Working directory:
+2025-05-04 20:17:07,043 - [INFO] X:\Blobbite\250504
+2025-05-04 20:17:07,044 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:07,044 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:17:07,044 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:07,044 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:07,045 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:07,045 - [INFO] Keine konvertierbaren Dateien im Verzeichnis 'X:\Blobbite\250504' gefunden. Skript wird
+beendet.
+2025-05-04 20:17:07,053 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:17:07,053 - [INFO] Starte Modul: folders
+2025-05-04 20:17:07,105 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:07,105 - [INFO] Working directory:
+2025-05-04 20:17:07,105 - [INFO] X:\Blobbite\250504
+2025-05-04 20:17:07,106 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:07,106 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:07,106 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:07,106 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:17:07,106 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:07,107 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:17:07,107 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:17:07,109 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:17:07,109 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:17:07,110 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:17:07,111 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:17:07,112 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:17:07,113 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:17:07,113 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:17:07,115 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:17:07,116 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:17:07,116 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:17:07,116 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:07,116 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:17:07,121 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:17:07,122 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,080 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,080 - [INFO] Working directory:
+2025-05-04 20:17:24,080 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:24,081 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,081 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,081 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:24,081 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:17:24,082 - [INFO] Verwende Basisverzeichnis direkt: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:24,085 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\250504_01
+2025-05-04 20:17:24,086 - [INFO] Datumsordner direkt im externen Pfad erstellt: X:\Blobbite\250504_01
+2025-05-04 20:17:24,086 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:17:24,086 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:17:24,087 - [INFO] Starte Modul: convert
+2025-05-04 20:17:24,166 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,166 - [INFO] Working directory:
+2025-05-04 20:17:24,166 - [INFO] X:\Blobbite\250504_01
+2025-05-04 20:17:24,166 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,167 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:17:24,167 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:24,167 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:24,167 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:24,168 - [INFO] Keine konvertierbaren Dateien im Verzeichnis 'X:\Blobbite\250504_01' gefunden. Skript wird
+beendet.
+2025-05-04 20:17:24,176 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:17:24,176 - [INFO] Starte Modul: folders
+2025-05-04 20:17:24,230 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,230 - [INFO] Working directory:
+2025-05-04 20:17:24,230 - [INFO] X:\Blobbite\250504_01
+2025-05-04 20:17:24,230 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,231 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:24,231 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:24,231 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:17:24,231 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,232 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:17:24,232 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:17:24,233 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:17:24,233 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:17:24,234 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:17:24,235 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:17:24,235 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:17:24,236 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:17:24,237 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:17:24,238 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:17:24,239 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:17:24,239 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:17:24,239 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:24,240 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:17:24,245 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:17:24,245 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,472 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,472 - [INFO] Working directory:
+2025-05-04 20:17:34,472 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:34,472 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,472 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,472 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:34,473 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:17:34,473 - [INFO] Verwende Basisverzeichnis direkt: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:34,477 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\250504_02
+2025-05-04 20:17:34,477 - [INFO] Datumsordner direkt im externen Pfad erstellt: X:\Blobbite\250504_02
+2025-05-04 20:17:34,477 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:17:34,478 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:17:34,478 - [INFO] Starte Modul: convert
+2025-05-04 20:17:34,556 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,556 - [INFO] Working directory:
+2025-05-04 20:17:34,556 - [INFO] X:\Blobbite\250504_02
+2025-05-04 20:17:34,556 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,557 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:17:34,557 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:34,557 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:34,557 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:34,558 - [INFO] Keine konvertierbaren Dateien im Verzeichnis 'X:\Blobbite\250504_02' gefunden. Skript wird
+beendet.
+2025-05-04 20:17:34,565 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:17:34,565 - [INFO] Starte Modul: folders
+2025-05-04 20:17:34,618 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,618 - [INFO] Working directory:
+2025-05-04 20:17:34,619 - [INFO] X:\Blobbite\250504_02
+2025-05-04 20:17:34,619 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,619 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:34,619 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:34,620 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:17:34,620 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,620 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:17:34,620 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:17:34,623 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:17:34,624 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:17:34,624 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:17:34,625 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:17:34,626 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:17:34,627 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:17:34,628 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:17:34,629 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:17:34,630 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:17:34,631 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:17:34,631 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:34,631 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:17:34,636 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:17:34,636 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,335 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,336 - [INFO] Working directory:
+2025-05-04 20:17:41,336 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:41,336 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,336 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,336 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:41,336 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:17:41,337 - [INFO] Verwende Basisverzeichnis direkt: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:17:41,340 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\250504_03
+2025-05-04 20:17:41,340 - [INFO] Datumsordner direkt im externen Pfad erstellt: X:\Blobbite\250504_03
+2025-05-04 20:17:41,340 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:17:41,341 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:17:41,341 - [INFO] Starte Modul: convert
+2025-05-04 20:17:41,420 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,420 - [INFO] Working directory:
+2025-05-04 20:17:41,421 - [INFO] X:\Blobbite\250504_03
+2025-05-04 20:17:41,421 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,421 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:17:41,421 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:41,422 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:41,422 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:41,422 - [INFO] Keine konvertierbaren Dateien im Verzeichnis 'X:\Blobbite\250504_03' gefunden. Skript wird
+beendet.
+2025-05-04 20:17:41,429 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:17:41,429 - [INFO] Starte Modul: folders
+2025-05-04 20:17:41,485 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,485 - [INFO] Working directory:
+2025-05-04 20:17:41,485 - [INFO] X:\Blobbite\250504_03
+2025-05-04 20:17:41,486 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,486 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:17:41,486 - [INFO] Ausgabeformat: png
+2025-05-04 20:17:41,487 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:17:41,487 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,487 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:17:41,487 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:17:41,488 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:17:41,489 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:17:41,490 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:17:41,491 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:17:41,492 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:17:41,492 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:17:41,493 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:17:41,494 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:17:41,495 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:17:41,496 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:17:41,496 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:17:41,496 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:17:41,502 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:17:41,502 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,821 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,822 - [INFO] Working directory:
+2025-05-04 20:23:17,822 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:23:17,822 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,822 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,822 - [INFO] Starte Skript im Verzeichnis: X:\Blobbite\P25Images_extract\ImagesExtract2
+2025-05-04 20:23:17,822 - [INFO] Kein spezielles Eingangsverzeichnis definiert. Verwende Arbeitsverzeichnis.
+2025-05-04 20:23:17,825 - [INFO] Hauptordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\image
+2025-05-04 20:23:17,827 - [INFO] Datumsordner erstellt: X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504
+2025-05-04 20:23:17,827 - [INFO] Modul convert gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\convert.py
+2025-05-04 20:23:17,827 - [INFO] Modul folders gefunden unter:
+X:\Blobbite\P25Images_extract\ImagesExtract2\modules\folders.py
+2025-05-04 20:23:17,827 - [INFO] Starte Modul: convert
+2025-05-04 20:23:17,907 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,907 - [INFO] Working directory:
+2025-05-04 20:23:17,907 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504
+2025-05-04 20:23:17,908 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,908 - [INFO] convert.py gestartet mit Zielordner: ...\.
+2025-05-04 20:23:17,908 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:23:17,908 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:23:17,908 - [INFO] Ausgabeformat: png
+2025-05-04 20:23:17,909 - [INFO] Keine konvertierbaren Dateien im Verzeichnis
+'X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504' gefunden. Skript wird beendet.
+2025-05-04 20:23:17,916 - [INFO] Modul convert erfolgreich beendet
+2025-05-04 20:23:17,916 - [INFO] Starte Modul: folders
+2025-05-04 20:23:17,967 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,967 - [INFO] Working directory:
+2025-05-04 20:23:17,967 - [INFO] X:\Blobbite\P25Images_extract\ImagesExtract2\image\250504
+2025-05-04 20:23:17,967 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,968 - [INFO] start.json geladen: X:\Blobbite\P25Images...2\settings\start.json
+2025-05-04 20:23:17,968 - [INFO] Ausgabeformat: png
+2025-05-04 20:23:17,968 - [INFO] foldes.json geladen: X:\Blobbite\P25Images...\settings\foldes.json
+2025-05-04 20:23:17,968 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,969 - [INFO] Verarbeite Ordnerstruktur in: ...\.
+2025-05-04 20:23:17,969 - [INFO] Arbeite im Ordner: ...\.
+2025-05-04 20:23:17,971 - [INFO] Ausgabeordner erstellt: ...\02-png
+2025-05-04 20:23:17,971 - [INFO] Collation-Ordner erstellt: ...\03-TransBack
+2025-05-04 20:23:17,971 - [INFO] Collation-Ordner erstellt: ...\03-Enhancement
+2025-05-04 20:23:17,973 - [INFO] Collation-Ordner erstellt: ...\03-Whitepaper
+2025-05-04 20:23:17,973 - [INFO] Collation-Ordner erstellt: ...\03-Enhancwhite
+2025-05-04 20:23:17,974 - [INFO] Collation-Ordner erstellt: ...\03-Enhanclean
+2025-05-04 20:23:17,975 - [INFO] Collation-Ordner erstellt: ...\03-Transclean
+2025-05-04 20:23:17,976 - [INFO] Collation-Ordner erstellt: ...\03-Enhwhitclean
+2025-05-04 20:23:17,976 - [INFO] Collation-Ordner erstellt: ...\03-Swapcolors
+2025-05-04 20:23:17,977 - [INFO] Collation-Ordner erstellt: ...\03-Invert
+2025-05-04 20:23:17,977 - [INFO] ------------------------------------------------------------------
+2025-05-04 20:23:17,977 - [INFO] Ordnerstruktur erfolgreich erstellt/aktualisiert.
+2025-05-04 20:23:17,983 - [INFO] Modul folders erfolgreich beendet
+2025-05-04 20:23:17,983 - [INFO] ------------------------------------------------------------------

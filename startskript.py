@@ -7,22 +7,24 @@ import shutil
 from pathlib import Path
 from datetime import datetime
 
-# Basispfad des Projekts ermitteln (Verzeichnis, in dem das Skript liegt)
+# Basispfad des Projekts ermitteln
 base_directory = Path(__file__).parent.absolute()
 
 # Pfade zu den wichtigen Verzeichnissen
-modules_directory = base_directory / "mdouls"  # Beachte die Schreibweise aus der Dateistruktur
+modules_directory = base_directory / "modules"
+init_directory = base_directory / "init"      # init-Verzeichnis hinzufügen!
 settings_directory = base_directory / "settings"
-spelling_directory = base_directory / "spelling"  # Neues Verzeichnis hinzugefügt
+spelling_directory = base_directory / "spelling"
 start_config_path = settings_directory / "start.json"
 
-# Importpfad für Module hinzufügen
+# Alle Verzeichnisse zum Importpfad hinzufügen
 sys.path.append(str(modules_directory))
-sys.path.append(str(spelling_directory))  # Auch das spelling-Verzeichnis zum Importpfad hinzufügen
+sys.path.append(str(init_directory))          # Dies ist der wichtige Teil!
+sys.path.append(str(spelling_directory))
 
-# Logger importieren
+# Logger importieren (aus init/ Verzeichnis)
 try:
-    from logger import log_message, log_separator, init_logger
+    from init.logger import log_message, log_separator, init_logger
 except ImportError:
     print("Fehler: logger.py konnte nicht importiert werden.")
     sys.exit(1)
@@ -63,15 +65,21 @@ work_directory = base_directory
 # Aktuelles Datum im Format JJMMTT
 current_date = datetime.now().strftime("%y%m%d")
 
-# Erstelle den Hauptordner
-main_folder_path = work_directory / folder_name
-if not main_folder_path.exists():
-    try:
-        main_folder_path.mkdir(parents=True)
-        log_message(f"Hauptordner erstellt: {main_folder_path}", level="info")
-    except Exception as e:
-        log_message(f"Fehler beim Erstellen des Hauptordners: {e}", level="error")
-        sys.exit(1)
+# Hier beginnt die Fix: korrekter Umgang mit null/None-Werten
+if folder_name is None or folder_name == "null":
+    # Wenn foldername null ist, verwenden wir das Basisverzeichnis direkt
+    main_folder_path = work_directory
+    log_message(f"Verwende Basisverzeichnis direkt: {main_folder_path}", level="info")
+else:
+    # Sonst erstellen wir den definierten Unterordner
+    main_folder_path = work_directory / folder_name
+    if not main_folder_path.exists():
+        try:
+            main_folder_path.mkdir(parents=True)
+            log_message(f"Hauptordner erstellt: {main_folder_path}", level="info")
+        except Exception as e:
+            log_message(f"Fehler beim Erstellen des Hauptordners: {e}", level="error")
+            sys.exit(1)
 
 # Bestimme, ob bereits Datumsordner existieren
 existing_folders = []
@@ -107,7 +115,10 @@ except Exception as e:
     log_message(f"Fehler beim Erstellen des Datumsordners: {e}", level="error")
     sys.exit(1)
 
-# Wenn ein externer Pfad angegeben ist, verschiebe den Ordner dorthin
+# Variable für Zielordner initialisieren
+target_folder_path = None
+
+# Wenn ein externer Pfad angegeben ist
 if folder_path and folder_path.lower() != "none":
     try:
         # Erstelle den Zielpfad falls nicht vorhanden
@@ -115,22 +126,39 @@ if folder_path and folder_path.lower() != "none":
         if not target_path.exists():
             target_path.mkdir(parents=True, exist_ok=True)
 
-        # Zielpfad für den verschobenen Ordner
-        target_folder_path = target_path / folder_name
+        if folder_name is None or folder_name == "null":
+            # Wenn foldername null ist, verwende den Zielpfad direkt
+            target_folder_path = target_path
+            # Erstelle den Datumsordner direkt im Zielpfad
+            external_date_folder = target_folder_path / new_folder_name
+            
+            # Erstelle den Datumsordner im externen Pfad
+            if not external_date_folder.exists():
+                external_date_folder.mkdir(parents=True, exist_ok=True)
+                
+            # Aktualisiere date_folder_path für spätere Verwendung
+            date_folder_path = external_date_folder
+            log_message(f"Datumsordner direkt im externen Pfad erstellt: {date_folder_path}", level="info")
+        else:
+            # Erstelle den benannten Unterordner im Zielpfad
+            target_folder_path = target_path / folder_name
+            
+            # Wenn der Ordner bereits am Ziel existiert, lösche ihn
+            if target_folder_path.exists():
+                shutil.rmtree(target_folder_path)
 
-        # Wenn der Ordner bereits am Ziel existiert, lösche ihn
-        if target_folder_path.exists():
-            shutil.rmtree(target_folder_path)
-
-        # Verschiebe den Ordner
-        shutil.move(str(main_folder_path), str(target_path))
-        log_message(f"Ordner verschoben nach: {target_folder_path}", level="info")
+            # Verschiebe den Hauptordner in den Zielpfad
+            shutil.move(str(main_folder_path), str(target_path))
+            log_message(f"Ordner verschoben nach: {target_folder_path}", level="info")
+            
+            # Aktualisiere date_folder_path für spätere Verwendung
+            date_folder_path = target_folder_path / new_folder_name
 
         # Arbeitsverzeichnis aktualisieren
         work_directory = target_path
     except Exception as e:
-        log_message(f"Fehler beim Verschieben des Ordners: {e}", level="error")
-        # Fahre mit dem lokalen Pfad fort
+        log_message(f"Fehler beim Verarbeiten des externen Pfades: {e}", level="error")
+        # Falls ein Fehler auftritt, behalten wir den lokalen Pfad bei
 
 # Liste der auszuführenden Skripte vorbereiten
 scripts_to_run = []
@@ -141,13 +169,16 @@ for module in start_config.get("modules", []):
     if not module_name or not module_enabled:
         continue
 
-    # Prüfe in mehreren Verzeichnissen nach dem Modul
-    search_paths = [
-        modules_directory / module_name,  # mdouls-Verzeichnis
-        base_directory / module_name,     # Hauptverzeichnis
-        settings_directory / module_name,  # settings-Verzeichnis
-        spelling_directory / module_name,  # spelling-Verzeichnis (neu hinzugefügt)
-    ]
+    # Hier berücksichtigen wir sowohl Groß- als auch Kleinschreibung
+    # und suchen in allen relevanten Verzeichnissen
+    search_paths = []
+
+    # Prüfe alle Kombinationen aus Verzeichnis und Dateiendung
+    for directory in [modules_directory, init_directory, base_directory, settings_directory, spelling_directory]:
+        # Prüfe die exakte Schreibweise
+        search_paths.append(directory / f"{module_name}.py")
+        # Prüfe die Kleinschreibung
+        search_paths.append(directory / f"{module_name.lower()}.py")
 
     module_path = None
     for path in search_paths:
@@ -159,9 +190,9 @@ for module in start_config.get("modules", []):
     if module_path:
         scripts_to_run.append((module_name, str(module_path)))
     else:
-        search_locations = "mdouls, Hauptverzeichnis, settings und spelling"
+        search_locations = "modules, init, Hauptverzeichnis, settings und spelling"
         log_message(f"Modul {module_name} nicht gefunden. Gesucht in: {search_locations}", level="warning")
-        log_message(f"Suchpfade: {', '.join(str(p) for p in search_paths)}", level="info")
+        log_message(f"Suchpfade geprüft: {[str(p) for p in search_paths]}", level="info")
 
 # Skripte ausführen
 for script_name, script_path in scripts_to_run:
@@ -169,11 +200,7 @@ for script_name, script_path in scripts_to_run:
 
     try:
         # Starte das Skript mit dem aktuellen Verzeichnis als Argument
-        # Wenn ein neues Arbeitsverzeichnis definiert wurde, übergebe dieses
-        if folder_path and folder_path.lower() != "none":
-            subprocess.run(["python", script_path, str(target_folder_path / new_folder_name)], check=True)
-        else:
-            subprocess.run(["python", script_path, str(date_folder_path)], check=True)
+        subprocess.run(["python", script_path, str(date_folder_path)], check=True)
         log_message(f"Modul {script_name} erfolgreich beendet", level="info")
     except subprocess.CalledProcessError as e:
         log_message(f"Fehler bei der Ausführung von {script_name}: {e}", level="error")

@@ -87,6 +87,9 @@ def get_folder_config():
 def get_folders_mapping():
     """Lädt die foldes.json-Datei und gibt die Ordnerzuordnung zurück."""
     folders_config = load_json_config("foldes.json")
+    # Entfernen des _disabled-Feldes, wenn es existiert
+    if "_disabled" in folders_config:
+        folders_config.pop("_disabled")
     return folders_config
 
 def get_spelling_config():

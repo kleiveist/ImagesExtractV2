@@ -7,5 +7,10 @@
   "output_foldes_collation6": "Transclean",
   "output_foldes_collation7": "Enhwhitclean",
   "output_foldes_collation8": "Swapcolors",
-  "output_foldes_collation9": "Invert"
+  "output_foldes_collation9": "Invert",
+  "_disabled": {
+    "output_foldes_collation10": "test1",
+    "output_foldes_collation11": "test2",
+    "output_foldes_collation12": "test3"
+  }
 }

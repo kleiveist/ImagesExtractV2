@@ -6,14 +6,17 @@
 ├── 📝 error_log.txt
 ├── 📄 ic_01.png
 ├── 📂 image/
+│   ├── 📂 250504/
+│   └── 📂 250504_01/
 ├── 📂 init/
-│   ├── 🐍 folders.py
 │   ├── 🐍 logger.py
 │   └── 🐍 utils.py
 ├── 📝 log.txt
-├── 📂 moduls/
+├── 📂 modules/
 │   ├── 🐍 convert.py
-│   └── 🐍 prepareInput.py
+│   ├── 🐍 folders.py
+│   ├── 🐍 prepareInput.py
+│   └── 🐍 spelling.py
 ├── 📂 settings/
 │   ├── 📂 _archive/
 │   │   └── 📄 settings.ini

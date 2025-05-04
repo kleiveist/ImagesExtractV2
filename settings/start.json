@@ -5,7 +5,7 @@
     "entrancepath": null
   },
   "logger": {
-    "logger_folder": false,
+    "logger_folder": true,
     "logging_enabled": true,
     "console_output": true
   },
@@ -14,16 +14,16 @@
     "enter_confirmation": true
   },
   "modules": [
-    {"name": "Convert.py", "enabled": true},
-    {"name": "Folders.py", "enabled": true},
-    {"name": "Enhancement.py", "enabled": false},
-    {"name": "TransBack.py", "enabled": false},
-    {"name": "Extract.py", "enabled": false},
-    {"name": "ExtractGray.py", "enabled": false},
-    {"name": "SwapColors.py", "enabled": false},
-    {"name": "CleanUp.py", "enabled": false},
-    {"name": "Scal.py", "enabled": false},
-    {"name": "Collation.py", "enabled": false},
-    {"name": "invert.py", "enabled": false}
+    {"name": "convert", "enabled": true},
+    {"name": "folders", "enabled": true},
+    {"name": "enhancement", "enabled": false},
+    {"name": "transback", "enabled": false},
+    {"name": "extract", "enabled": false},
+    {"name": "extractgray", "enabled": false},
+    {"name": "swapcolors", "enabled": false},
+    {"name": "cleanup", "enabled": false},
+    {"name": "scal", "enabled": false},
+    {"name": "collation", "enabled": false},
+    {"name": "invert", "enabled": false}
   ]
 }

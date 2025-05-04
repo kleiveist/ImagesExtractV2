@@ -17,8 +17,10 @@ else:
 # Füge das Modulverzeichnis zum Pfad hinzu
 script_dir = os.path.dirname(os.path.abspath(__file__))
 base_dir = os.path.dirname(script_dir)  # Übergeordnetes Verzeichnis (Projektverzeichnis)
-modules_dir = script_dir  # Wir sind bereits im mdouls-Verzeichnis
+modules_dir = script_dir  # Wir sind bereits im modules-Verzeichnis
+init_dir = os.path.join(base_dir, "init")  # DIESE ZEILE HINZUFÜGEN
 sys.path.append(modules_dir)
+sys.path.append(init_dir)  # DIESE ZEILE HINZUFÜGEN
 
 try:
     from logger import (
